@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Огэ тренажер математика</string>
+    <string name="openTasks">Задания</string>
+    <string name="openTheory">Теория</string>
+    <string name="openDraft">Черновик</string>
+    <string name="openStatistics">Статистика</string>
+    <string name="choiceTask">Выберите номер задания</string>
+    <string name="bt1_5">1-5</string>
+    <string name="bt6">6</string>
+    <string name="bt7">7</string>
+    <string name="bt8">8</string>
+    <string name="bt9">9</string>
+    <string name="bt10">10</string>
+    <string name="bt11">11</string>
+    <string name="bt12">12</string>
+    <string name="bt13">13</string>
+    <string name="bt14">14</string>
+    <string name="bt15">15</string>
+    <string name="bt16">16</string>
+    <string name="bt17">17</string>
+    <string name="bt18">18</string>
+    <string name="bt19">19</string>
+    <string name="bt20">20</string>
+    <string name="bt21">21</string>
+    <string name="bt22">22</string>
+    <string name="bt23">23</string>
+    <string name="bt24">24</string>
+    <string name="bt25">25</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

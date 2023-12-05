@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <attr name="menuColor" format="color"/>
+    <attr name="textColor" format="color"/>
+    <style name="Base.Theme.ОгэТренажерМатематика" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="menuColor">@color/white</item>;
+        <item name="textColor">@color/white</item>;
+    </style>
+</resources>
