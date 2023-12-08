@@ -16,7 +16,8 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
     private TasksFragment tasksFragment = new TasksFragment();
     private TheoryFragment theoryFragment = new TheoryFragment();
     private Fragment Task6_19 = new Task6_19Fragment();
-    private Fragment activeTaskFragment = tasksFragment;
+    public Fragment activeTaskFragment = tasksFragment;
+
 
 
     @Override
@@ -49,17 +50,16 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
     public void setNewFragment(Fragment fragment) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.framelayout, fragment);
-        if (fragment == activeTaskFragment) {
-            if (activeTaskFragment == tasksFragment) {
-                activeTaskFragment = Task6_19;
-            } else {
-                activeTaskFragment = tasksFragment;
-            }
-
-        }
         openTasksButton.setColorFilter(null);
         openTheoryButton.setColorFilter(null);
         ft.commit();
+    }
+    public void setActiveFragment(){
+        if (activeTaskFragment == tasksFragment) {
+            activeTaskFragment = Task6_19;
+        } else {
+            activeTaskFragment = tasksFragment;
+        }
     }
 
 }

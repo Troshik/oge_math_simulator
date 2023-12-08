@@ -1,7 +1,6 @@
 package com.practicum.oge_math;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,12 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.practicum.oge_math.MainActivity;
 
 
-
-
-public class TasksFragment extends Fragment {
+public class TasksFragment extends Fragment  {
 
     public interface TasksInterface {
         public void setNewFragment(Fragment fragment);
@@ -45,15 +41,18 @@ public class TasksFragment extends Fragment {
 
         Fragment Task6_19 = new Task6_19Fragment();
 
-
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 newFr.setNewFragment(Task6_19);
+                MainActivity mainActivity = (MainActivity) getActivity();
+                assert mainActivity != null;
+                mainActivity.setActiveFragment();
             }
+
         });
 
         return view;
     }
-
 }

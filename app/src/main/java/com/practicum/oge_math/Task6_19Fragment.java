@@ -45,7 +45,11 @@ public class Task6_19Fragment extends Fragment {
         imageLastList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 newFr.setNewFragment(TasksList);
+                MainActivity mainActivity = (MainActivity) getActivity();
+                assert mainActivity != null;
+                mainActivity.setActiveFragment();
             }
         });
 
