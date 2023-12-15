@@ -1,3 +1,4 @@
 <resources>
     <string name="t1"><p class="left_margin">Найдите значение выражения 2 + 1 </p></string>
+    <string name="answ1"><p class="left_margin">4</p></string>
 </resources>

@@ -26,6 +26,8 @@
     <string name="bt23">23</string>
     <string name="bt24">24</string>
     <string name="bt25">25</string>
+    <string name="falseAnswer">Неверно</string>
+    <string name="trueAnswer">Верно</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
