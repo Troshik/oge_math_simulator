@@ -26,6 +26,7 @@ public class Task6_19Fragment extends Fragment {
     }
 
     TasksInterface newFr;
+    String textAnsw;
 
     @Override
     public void onAttach(@NonNull Activity activity) {
@@ -45,8 +46,20 @@ public class Task6_19Fragment extends Fragment {
 
         ImageButton imageLastList = view.findViewById(R.id.imageLastList);
         Button answBottom = view.findViewById(R.id.answBtn);
+        Button solutBottom = view.findViewById(R.id.solutBtn);
+        Button buttonTask1 = view.findViewById(R.id.buttonTask1);
+        Button buttonTask2 = view.findViewById(R.id.buttonTask2);
+        Button buttonTask3 = view.findViewById(R.id.buttonTask3);
+        Button buttonTask4 = view.findViewById(R.id.buttonTask4);
+        Button buttonTask5 = view.findViewById(R.id.buttonTask5);
+        Button buttonTask6 = view.findViewById(R.id.buttonTask6);
+        Button buttonTask7 = view.findViewById(R.id.buttonTask7);
         EditText editText = view.findViewById(R.id.getAnswerEdText);
         TextView trFlAnsw = view.findViewById(R.id.trFlAnswText);
+        TextView trAnsw = view.findViewById(R.id.trAnswText);
+        textAnsw = getString(R.string.answ1);
+
+
 
         Fragment TasksList = new TasksFragment();
 
@@ -66,7 +79,7 @@ public class Task6_19Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!editText.getText().toString().equals("")) {
-                    if (editText.getText().toString().equals("3")) {
+                    if (editText.getText().toString().equals(textAnsw)) {
                         trFlAnsw.setTextColor(Color.GREEN);
                         trFlAnsw.setText(R.string.trueAnswer);
                     } else {
@@ -76,6 +89,77 @@ public class Task6_19Fragment extends Fragment {
                 }
             }
         });
+
+        solutBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                trAnsw.setText(textAnsw);
+            }
+        });
+
+        buttonTask1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                trFlAnsw.setText("");
+                trAnsw.setText("");
+                textAnsw = getString(R.string.answ1);
+            }
+        });
+
+        buttonTask2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                trFlAnsw.setText("");
+                trAnsw.setText("");
+                textAnsw = getString(R.string.answ2);
+            }
+        });
+
+        buttonTask3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                trFlAnsw.setText("");
+                trAnsw.setText("");
+                textAnsw = getString(R.string.answ3);
+            }
+        });
+
+        buttonTask4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                trFlAnsw.setText("");
+                trAnsw.setText("");
+                textAnsw = getString(R.string.answ4);
+            }
+        });
+
+        buttonTask5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                trFlAnsw.setText("");
+                trAnsw.setText("");
+                textAnsw = getString(R.string.answ5);
+            }
+        });
+
+        buttonTask6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                trFlAnsw.setText("");
+                trAnsw.setText("");
+                textAnsw = getString(R.string.answ6);
+            }
+        });
+
+        buttonTask7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                trFlAnsw.setText("");
+                trAnsw.setText("");
+                textAnsw = getString(R.string.answ7);
+            }
+        });
+
 
         return view;
     }

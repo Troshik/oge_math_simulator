@@ -14,6 +14,7 @@
             android:id="@+id/imageLastList"
             android:layout_width="65dp"
             android:layout_height="65dp"
+            android:contentDescription="@string/ret"
             android:src="?attr/homeAsUpIndicator"
             app:cornerRadius="12dp"
             tools:ignore="MissingConstraints" />
@@ -38,72 +39,86 @@
 
                 <Button
                     android:id="@+id/buttonTask1"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="54dp"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/nodarkblue"
-                    android:text="1"
+                    android:text="@string/bt1"
+                    android:textColor="?android:attr/colorBackground"
                     app:cornerRadius="12dp" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/buttonTask2"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="54dp"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/nodarkblue"
-                    android:text="2"
+                    android:text="@string/bt2"
+                    android:textColor="?android:attr/colorBackground"
                     app:cornerRadius="12dp" />
 
                 <Button
-                    android:id="@+id/button30"
+                    android:id="@+id/buttonTask3"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="54dp"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/nodarkblue"
-                    android:text="3"
+                    android:text="@string/bt3"
+                    android:textColor="?android:attr/colorBackground"
                     app:cornerRadius="12dp" />
 
                 <Button
-                    android:id="@+id/button31"
+                    android:id="@+id/buttonTask4"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="54dp"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/nodarkblue"
-                    android:text="4"
+                    android:text="@string/bt4"
+                    android:textColor="?android:attr/colorBackground"
                     app:cornerRadius="12dp" />
 
                 <Button
-                    android:id="@+id/button32"
+                    android:id="@+id/buttonTask5"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="54dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
+                    android:layout_margin= "5dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/nodarkblue"
-                    android:text="5"
+                    android:text="@string/bt5"
+                    android:textColor="?android:attr/colorBackground"
                     app:cornerRadius="12dp" />
 
                 <Button
-                    android:id="@+id/button33"
+                    android:id="@+id/buttonTask6"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="54dp"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/nodarkblue"
                     android:text="@string/bt6"
+                    android:textColor="?android:attr/colorBackground"
                     app:cornerRadius="12dp" />
 
                 <Button
-                    android:id="@+id/button34"
+                    android:id="@+id/buttonTask7"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="54dp"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/nodarkblue"
                     android:text="@string/bt7"
+                    android:textColor="?android:attr/colorBackground"
                     app:cornerRadius="12dp" />
             </LinearLayout>
         </HorizontalScrollView>
@@ -122,11 +137,13 @@
 
         <EditText
             android:id="@+id/getAnswerEdText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
+            android:autofillHints=""
             android:ems="10"
-            android:hint="Ответ"
+            android:hint="@string/answer"
             android:inputType="text"
             android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -139,31 +156,49 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:backgroundTint="@color/nodarkblue"
             android:padding="20dp"
-            android:text="Проверить"
-            android:textColor="@color/black"
+            android:text="@string/check"
+            app:cornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/getAnswerEdText"
-            app:layout_constraintTop_toBottomOf="@id/textView2" />
-
-        <TextView
-            android:id="@+id/trflansw"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text=""
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/getAnswerEdText" />
 
         <TextView
             android:id="@+id/trFlAnswText"
             android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/answBtn"
+            app:layout_constraintStart_toEndOf="@+id/answBtn"
+            app:layout_constraintTop_toTopOf="@+id/answBtn" />
+
+        <Button
+            android:id="@+id/solutBtn"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/nodarkblue"
+            android:padding="20dp"
+            android:text="@string/solut"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/getAnswerEdText" />
+            app:layout_constraintTop_toBottomOf="@id/answBtn" />
+
+        <TextView
+            android:id="@+id/trAnswText"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/solutBtn"
+            app:layout_constraintStart_toEndOf="@+id/solutBtn"
+            app:layout_constraintTop_toTopOf="@+id/solutBtn" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
