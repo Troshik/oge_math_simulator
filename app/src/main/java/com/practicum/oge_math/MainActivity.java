@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
+
 public class MainActivity extends AppCompatActivity implements TasksFragment.TasksInterface, Task6_19Fragment.TasksInterface {
     private ImageButton openTasksButton, openTheoryButton, openDraftButton, openStatisticsButton;
     private FrameLayout framelayout;
@@ -29,26 +30,31 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
         openTheoryButton = findViewById(R.id.openTheoryButton);
 
 
-        setNewFragment(tasksFragment);
+        setNewFragment(tasksFragment, "0");
         openTasksButton.setColorFilter(R.color.nodarkblue);
 
         openTheoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setNewFragment(theoryFragment);
+                setNewFragment(theoryFragment, "0");
                 openTheoryButton.setColorFilter(R.color.nodarkblue);;
             }
         });
         openTasksButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setNewFragment(activeTaskFragment);
+                setNewFragment(activeTaskFragment, "0");
                 openTasksButton.setColorFilter(R.color.nodarkblue);
             }
         });
     }
-    public void setNewFragment(Fragment fragment) {
+    public void setNewFragment(Fragment fragment, String buttonNumber) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("buttonNumber", buttonNumber);
+        fragment.setArguments(bundle);
+
         ft.replace(R.id.framelayout, fragment);
         openTasksButton.setColorFilter(null);
         openTheoryButton.setColorFilter(null);

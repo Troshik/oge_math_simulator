@@ -16,7 +16,7 @@ import android.widget.Button;
 public class TasksFragment extends Fragment  {
 
     public interface TasksInterface {
-        public void setNewFragment(Fragment fragment);
+        public void setNewFragment(Fragment fragment, String buttonNumber);
     }
 
     TasksInterface newFr;
@@ -27,7 +27,7 @@ public class TasksFragment extends Fragment  {
         try {
             newFr = (TasksInterface) activity;
         } catch (ClassCastException e) {
-                throw new ClassCastException(activity.toString() + "must be bebeeb");
+            throw new ClassCastException(activity.toString() + "must be bebeeb");
         }
     }
 
@@ -38,6 +38,7 @@ public class TasksFragment extends Fragment  {
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
 
         Button button6 = view.findViewById(R.id.button6);
+        Button button7 = view.findViewById(R.id.button7);
 
         Fragment Task6_19 = new Task6_19Fragment();
 
@@ -45,7 +46,19 @@ public class TasksFragment extends Fragment  {
             @Override
             public void onClick(View v) {
 
-                newFr.setNewFragment(Task6_19);
+                newFr.setNewFragment(Task6_19, "6");
+                MainActivity mainActivity = (MainActivity) getActivity();
+                assert mainActivity != null;
+                mainActivity.setActiveFragment();
+            }
+
+        });
+
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                newFr.setNewFragment(Task6_19, "7");
                 MainActivity mainActivity = (MainActivity) getActivity();
                 assert mainActivity != null;
                 mainActivity.setActiveFragment();
