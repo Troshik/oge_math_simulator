@@ -10,8 +10,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
     }
 }
 
 rootProject.name = "Огэ тренажер математика"
 include(":app")
+include("SignatureView-Example", "signature-view")

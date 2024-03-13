@@ -4,20 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 
-public class MainActivity extends AppCompatActivity implements TasksFragment.TasksInterface, Task6_19Fragment.TasksInterface {
-    private ImageButton openTasksButton, openTheoryButton, openDraftButton, openStatisticsButton;
-    private FrameLayout framelayout;
-    private TasksFragment tasksFragment = new TasksFragment();
-    private TheoryFragment theoryFragment = new TheoryFragment();
-    private Fragment Task6_19 = new Task6_19Fragment();
+public class MainActivity extends AppCompatActivity implements TasksFragment.TasksInterface, Task6_19Fragment.TasksInterface, Task20_25Fragment.TasksInterface {
+    public ImageButton openTasksButton, openTheoryButton, openDraftButton, openStatisticsButton;
+    private final TasksFragment tasksFragment = new TasksFragment();
+    TheoryFragment theoryFragment = new TheoryFragment();
     public Fragment activeTaskFragment = tasksFragment;
+    public String activeNum;
 
 
 
@@ -26,11 +23,14 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.framelayout, new TasksFragment())
+                    .commit();
+        }
+
         openTasksButton = findViewById(R.id.openTasksButton);
         openTheoryButton = findViewById(R.id.openTheoryButton);
-
-
-        setNewFragment(tasksFragment, "0");
         openTasksButton.setColorFilter(R.color.nodarkblue);
 
         openTheoryButton.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
         openTasksButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setNewFragment(activeTaskFragment, "0");
+                setNewFragment(activeTaskFragment, activeNum);
                 openTasksButton.setColorFilter(R.color.nodarkblue);
             }
         });
@@ -60,12 +60,9 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
         openTheoryButton.setColorFilter(null);
         ft.commit();
     }
-    public void setActiveFragment(){
-        if (activeTaskFragment == tasksFragment) {
-            activeTaskFragment = Task6_19;
-        } else {
-            activeTaskFragment = tasksFragment;
-        }
+    public void setActiveFragment(Fragment fr, String btn_num){
+        activeTaskFragment = fr;
+        activeNum = btn_num;
     }
 
 }

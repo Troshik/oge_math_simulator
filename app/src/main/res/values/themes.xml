@@ -3,10 +3,12 @@
     <attr name="menuColor" format="color"/>
     <attr name="textColor" format="color"/>
     <attr name="btntextColor" format="color"/>
+    <attr name="backg" format="color"/>
     <style name="Base.Theme.ОгэТренажерМатематика" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimary">@color/white</item>;
+        <item name="colorPrimary">@color/black</item>;
+        <item name="backg">@color/white</item>;
         <item name="menuColor">@color/gray</item>;
         <item name="textColor">@color/black</item>;
         <item name="btntextColor">@color/white</item>;

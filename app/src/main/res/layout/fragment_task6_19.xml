@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimary"
+    android:background="?attr/backg"
     tools:context=".Task6_19Fragment">
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -133,7 +133,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="-20dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/answer"
@@ -191,6 +190,7 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="20dp"
             android:gravity="center"
+            android:textColor="?attr/textColor"
             app:layout_constraintBottom_toBottomOf="@+id/solutBtn"
             app:layout_constraintStart_toEndOf="@+id/solutBtn"
             app:layout_constraintTop_toTopOf="@+id/solutBtn" />
@@ -203,6 +203,7 @@
             android:layout_marginEnd="20dp"
             android:contentDescription="@string/openTasks"
             android:src="@drawable/t6_1"
+            android:adjustViewBounds="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />

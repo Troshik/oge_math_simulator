@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backg"
+    tools:context=".Task20_25Fragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageButton
+                android:id="@+id/imageLastList"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:contentDescription="@string/ret"
+                android:src="?attr/homeAsUpIndicator"
+                app:cornerRadius="12dp"
+                tools:ignore="MissingConstraints" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageLastList"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/imageLastList"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="ScrollViewCount">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/buttonTask1"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="54dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/nodarkblue"
+                        android:text="@string/bt1"
+                        android:textColor="?attr/btntextColor"
+                        app:cornerRadius="12dp" />
+
+                    <Button
+                        android:id="@+id/buttonTask2"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="54dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/nodarkblue"
+                        android:text="@string/bt2"
+                        android:textColor="?attr/btntextColor"
+                        app:cornerRadius="12dp" />
+
+                    <Button
+                        android:id="@+id/buttonTask3"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="54dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/nodarkblue"
+                        android:text="@string/bt3"
+                        android:textColor="?attr/btntextColor"
+                        app:cornerRadius="12dp" />
+
+                    <Button
+                        android:id="@+id/buttonTask4"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="54dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/nodarkblue"
+                        android:text="@string/bt4"
+                        android:textColor="?attr/btntextColor"
+                        app:cornerRadius="12dp" />
+
+                    <Button
+                        android:id="@+id/buttonTask5"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="54dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/nodarkblue"
+                        android:text="@string/bt5"
+                        android:textColor="?attr/btntextColor"
+                        app:cornerRadius="12dp" />
+
+                    <Button
+                        android:id="@+id/buttonTask6"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="54dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/nodarkblue"
+                        android:text="@string/bt6"
+                        android:textColor="?attr/btntextColor"
+                        app:cornerRadius="12dp" />
+
+                    <Button
+                        android:id="@+id/buttonTask7"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="54dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/nodarkblue"
+                        android:text="@string/bt7"
+                        android:textColor="?attr/btntextColor"
+                        app:cornerRadius="12dp" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <Button
+                android:id="@+id/solutBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:backgroundTint="@color/nodarkblue"
+                android:padding="20dp"
+                android:text="@string/solut"
+                android:textColor="?attr/btntextColor"
+                app:cornerRadius="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageTask" />
+
+            <ImageView
+                android:id="@+id/imageTask"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:contentDescription="@string/openTasks"
+                android:src="@drawable/t6_1"
+                android:adjustViewBounds="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+            <ImageView
+                android:id="@+id/imageAns"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:contentDescription="@string/openTasks"
+                android:src="@drawable/a21_1"
+                android:visibility="invisible"
+                android:adjustViewBounds="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/solutBtn" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

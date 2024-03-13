@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:background="?attr/colorPrimary"
+        android:background="?attr/backg"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageButton
