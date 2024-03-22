@@ -53,7 +53,7 @@ public class Task20_25Fragment extends Fragment {
         Button buttonTask5 = view.findViewById(R.id.buttonTask5);
         Button buttonTask6 = view.findViewById(R.id.buttonTask6);
         Button buttonTask7 = view.findViewById(R.id.buttonTask7);
-        ImageView imageTask = view.findViewById(R.id.imageTask);
+        ImageView imageTask = view.findViewById(R.id.imageTask1);
         ImageView imageAnsw = view.findViewById(R.id.imageAns);
 
         Bundle args = getArguments();

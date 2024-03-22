@@ -39,7 +39,7 @@ public class TasksFragment extends Fragment  {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
 
-
+        Button button1_5 = view.findViewById(R.id.button1_5);
         Button button6 = view.findViewById(R.id.button6);
         Button button7 = view.findViewById(R.id.button7);
         Button button8 = view.findViewById(R.id.button8);
@@ -61,8 +61,10 @@ public class TasksFragment extends Fragment  {
         Button button24 = view.findViewById(R.id.button24);
         Button button25 = view.findViewById(R.id.button25);
 
+        Fragment Task1_5 = new Task1_5Fragment();
         Fragment Task6_19 = new Task6_19Fragment();
         Fragment Task20_25 = new Task20_25Fragment();
+        Fragment Develop = new DevelopFragment();
 
         View mainView = inflater.inflate(R.layout.activity_main, container, false);
         openTasksButton = mainView.findViewById(R.id.openTasksButton);
@@ -101,7 +103,15 @@ public class TasksFragment extends Fragment  {
         button8.setOnClickListener(buttonClickListener6_19);
         button9.setOnClickListener(buttonClickListener6_19);
         button10.setOnClickListener(buttonClickListener6_19);
-        //button11.setOnClickListener(buttonClickListener6_19);
+        button11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newFr.setNewFragment(Develop, "0");
+                MainActivity mainActivity = (MainActivity) getActivity();
+                assert mainActivity != null;
+                mainActivity.setActiveFragment(Develop, "0");
+            }
+        });
         button12.setOnClickListener(buttonClickListener6_19);
         button13.setOnClickListener(buttonClickListener6_19);
         button14.setOnClickListener(buttonClickListener6_19);
@@ -112,6 +122,52 @@ public class TasksFragment extends Fragment  {
         button19.setOnClickListener(buttonClickListener6_19);
         button20.setOnClickListener(buttonClickListener20_25);
         button21.setOnClickListener(buttonClickListener20_25);
+        button22.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newFr.setNewFragment(Develop, "0");
+                MainActivity mainActivity = (MainActivity) getActivity();
+                assert mainActivity != null;
+                mainActivity.setActiveFragment(Develop, "0");
+            }
+        });
+        button23.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newFr.setNewFragment(Develop, "0");
+                MainActivity mainActivity = (MainActivity) getActivity();
+                assert mainActivity != null;
+                mainActivity.setActiveFragment(Develop, "0");
+            }
+        });
+        button24.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newFr.setNewFragment(Develop, "0");
+                MainActivity mainActivity = (MainActivity) getActivity();
+                assert mainActivity != null;
+                mainActivity.setActiveFragment(Develop, "0");
+            }
+        });
+        button25.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newFr.setNewFragment(Develop, "0");
+                MainActivity mainActivity = (MainActivity) getActivity();
+                assert mainActivity != null;
+                mainActivity.setActiveFragment(Develop, "0");
+            }
+        });
+
+        button1_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newFr.setNewFragment(Task1_5, "1");
+                MainActivity mainActivity = (MainActivity) getActivity();
+                assert mainActivity != null;
+                mainActivity.setActiveFragment(Task1_5, "1");
+            }
+        });
 
         return view;
     }

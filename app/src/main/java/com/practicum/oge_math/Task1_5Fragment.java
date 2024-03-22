@@ -1,10 +1,13 @@
 package com.practicum.oge_math;
 
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -28,9 +31,20 @@ public class Task1_5Fragment extends Fragment {
     }
 
     TasksInterface newFr;
-    String textAnsw;
+    String textAnsw1, textAnsw2, textAnsw3, textAnsw4, textAnsw5, actBtn;
+
+    @Override
+    public void onAttach(@NonNull Activity activity) {
+        super.onAttach(activity);
+        try {
+            newFr = (Task1_5Fragment.TasksInterface) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + "must be bebeeb");
+        }
+    }
 
 
+    @SuppressLint("DiscouragedApi")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,8 +52,6 @@ public class Task1_5Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_task1_5, container, false);
 
         ImageButton imageLastList = view.findViewById(R.id.imageLastList);
-        Button answBottom = view.findViewById(R.id.answBtn);
-        Button solutBottom = view.findViewById(R.id.solutBtn);
         Button buttonTask1 = view.findViewById(R.id.buttonTask1);
         Button buttonTask2 = view.findViewById(R.id.buttonTask2);
         Button buttonTask3 = view.findViewById(R.id.buttonTask3);
@@ -47,42 +59,156 @@ public class Task1_5Fragment extends Fragment {
         Button buttonTask5 = view.findViewById(R.id.buttonTask5);
         Button buttonTask6 = view.findViewById(R.id.buttonTask6);
         Button buttonTask7 = view.findViewById(R.id.buttonTask7);
-        EditText editText = view.findViewById(R.id.getAnswerEdText);
-        TextView trFlAnsw = view.findViewById(R.id.trFlAnswText);
-        TextView trAnsw = view.findViewById(R.id.trAnswText);
-        ImageView imageTask = view.findViewById(R.id.imageTask);
+
+        EditText editText1 = view.findViewById(R.id.getAnswerEdText1);
+        TextView trAnsw1 = view.findViewById(R.id.trAnswText1);
+        Button answBottom1 = view.findViewById(R.id.answBtn1);
+        Button solutBottom1 = view.findViewById(R.id.solutBtn1);
+        ImageView imageTask1 = view.findViewById(R.id.imageTask1);
+        TextView trFlAnsw1 = view.findViewById(R.id.trFlAnswText1);
+
+
+        EditText editText2 = view.findViewById(R.id.getAnswerEdText2);
+        TextView trAnsw2 = view.findViewById(R.id.trAnswText2);
+        Button answBottom2 = view.findViewById(R.id.answBtn2);
+        Button solutBottom2 = view.findViewById(R.id.solutBtn2);
+        ImageView imageTask2 = view.findViewById(R.id.imageTask2);
+        TextView trFlAnsw2 = view.findViewById(R.id.trFlAnswText2);
+
+        EditText editText3 = view.findViewById(R.id.getAnswerEdText3);
+        TextView trAnsw3 = view.findViewById(R.id.trAnswText3);
+        Button answBottom3 = view.findViewById(R.id.answBtn3);
+        Button solutBottom3 = view.findViewById(R.id.solutBtn3);
+        ImageView imageTask3 = view.findViewById(R.id.imageTask3);
+        TextView trFlAnsw3 = view.findViewById(R.id.trFlAnswText3);
+
+        EditText editText4 = view.findViewById(R.id.getAnswerEdText4);
+        TextView trAnsw4 = view.findViewById(R.id.trAnswText4);
+        Button answBottom4 = view.findViewById(R.id.answBtn4);
+        Button solutBottom4 = view.findViewById(R.id.solutBtn4);
+        ImageView imageTask4 = view.findViewById(R.id.imageTask4);
+        TextView trFlAnsw4 = view.findViewById(R.id.trFlAnswText4);
+
+        EditText editText5 = view.findViewById(R.id.getAnswerEdText5);
+        TextView trAnsw5 = view.findViewById(R.id.trAnswText5);
+        Button answBottom5 = view.findViewById(R.id.answBtn5);
+        Button solutBottom5 = view.findViewById(R.id.solutBtn5);
+        ImageView imageTask5 = view.findViewById(R.id.imageTask5);
+        TextView trFlAnsw5 = view.findViewById(R.id.trFlAnswText5);
 
 
         Bundle args = getArguments();
         if (args != null) {
-            String taskNumber = args.getString("buttonNumber", "0");
 
-            int[] group1ResourcesAnsw = {R.string.answ6_1, R.string.answ6_2, R.string.answ6_3, R.string.answ6_4, R.string.answ6_5, R.string.answ6_6, R.string.answ6_7};
-            int[] group2ResourcesAnsw = {R.string.answ7_1, R.string.answ7_2, R.string.answ7_3, R.string.answ7_4, R.string.answ7_5, R.string.answ7_6, R.string.answ7_7};
-            int[] selectedGroupResourcesAnsw;
+            textAnsw1 = getString(getResources().getIdentifier("answ1_1_1", "string", requireContext().getPackageName()));
+            imageTask1.setImageResource(getResources().getIdentifier("t1_1_1", "drawable", requireContext().getPackageName()));
+            textAnsw2 = getString(getResources().getIdentifier("answ1_2_1", "string", requireContext().getPackageName()));
+            imageTask2.setImageResource(getResources().getIdentifier("t1_2_1", "drawable", requireContext().getPackageName()));
+            textAnsw3 = getString(getResources().getIdentifier("answ1_3_1", "string", requireContext().getPackageName()));
+            imageTask3.setImageResource(getResources().getIdentifier("t1_3_1", "drawable", requireContext().getPackageName()));
+            textAnsw4 = getString(getResources().getIdentifier("answ1_4_1", "string", requireContext().getPackageName()));
+            imageTask4.setImageResource(getResources().getIdentifier("t1_4_1", "drawable", requireContext().getPackageName()));
+            textAnsw5 = getString(getResources().getIdentifier("answ1_5_1", "string", requireContext().getPackageName()));
+            imageTask5.setImageResource(getResources().getIdentifier("t1_5_1", "drawable", requireContext().getPackageName()));
 
-            int[] group1ResourcesTask = {R.drawable.t6_1, R.drawable.t6_2, R.drawable.t6_3, R.drawable.t6_4, R.drawable.t6_5, R.drawable.t6_6, R.drawable.t6_7};
-            int[] group2ResourcesTask = {R.drawable.t7_1, R.drawable.t7_2, R.drawable.t7_3, R.drawable.t7_4, R.drawable.t7_5, R.drawable.t7_6, R.drawable.t7_7};
-            int[] selectedGroupResourcesTask;
-
-            switch (taskNumber) {
-                case "6":
-                    selectedGroupResourcesAnsw = group1ResourcesAnsw;
-                    selectedGroupResourcesTask = group1ResourcesTask;
-                    break;
-                case "7":
-                    selectedGroupResourcesAnsw = group2ResourcesAnsw;
-                    selectedGroupResourcesTask = group2ResourcesTask;
-                    break;
-                default:
-                    selectedGroupResourcesAnsw = new int[0];
-                    selectedGroupResourcesTask = new int[0];
-            }
-
-            textAnsw = getString(selectedGroupResourcesAnsw[0]);
-            imageTask.setImageResource(selectedGroupResourcesTask[0]);
+            actBtn  = "1";
 
             Fragment TasksList = new TasksFragment();
+
+            View.OnClickListener buttonClickListener = new View.OnClickListener() {
+                @SuppressLint({"ResourceAsColor", "SetTextI18n"})
+                @Override
+                public void onClick(View v) {
+                    String buttonName = getResources().getResourceEntryName(v.getId());
+                    actBtn  = buttonName.substring(10);
+
+                    int imageResourceId1 = getResources().getIdentifier("t1_" + actBtn + "_1", "drawable", requireContext().getPackageName());
+                    int resourceId1 = getResources().getIdentifier("answ1_" + actBtn + "_1", "string", requireContext().getPackageName());
+                    imageTask1.setImageResource(imageResourceId1);
+                    trAnsw1.setText("");
+                    trFlAnsw1.setText("");
+                    textAnsw1 = getString(resourceId1);
+
+                    int imageResourceId2 = getResources().getIdentifier("t1_" + actBtn + "_2", "drawable", requireContext().getPackageName());
+                    int resourceId2 = getResources().getIdentifier("answ1_" + actBtn + "_2", "string", requireContext().getPackageName());
+                    imageTask2.setImageResource(imageResourceId2);
+                    trAnsw2.setText("");
+                    trFlAnsw2.setText("");
+                    textAnsw2 = getString(resourceId2);
+
+                    int imageResourceId3 = getResources().getIdentifier("t1_" + actBtn + "_3", "drawable", requireContext().getPackageName());
+                    int resourceId3 = getResources().getIdentifier("answ1_" + actBtn + "_3", "string", requireContext().getPackageName());
+                    imageTask3.setImageResource(imageResourceId3);
+                    trAnsw3.setText("");
+                    trFlAnsw3.setText("");
+                    textAnsw3 = getString(resourceId3);
+
+                    int imageResourceId4 = getResources().getIdentifier("t1_" + actBtn + "_4", "drawable", requireContext().getPackageName());
+                    int resourceId4 = getResources().getIdentifier("answ1_" + actBtn + "_4", "string", requireContext().getPackageName());
+                    imageTask4.setImageResource(imageResourceId4);
+                    trAnsw4.setText("");
+                    trFlAnsw4.setText("");
+                    textAnsw4 = getString(resourceId4);
+
+                    int imageResourceId5 = getResources().getIdentifier("t1_" + actBtn + "_5", "drawable", requireContext().getPackageName());
+                    int resourceId5 = getResources().getIdentifier("answ1_" + actBtn + "_5", "string", requireContext().getPackageName());
+                    imageTask5.setImageResource(imageResourceId5);
+                    trAnsw5.setText("");
+                    trFlAnsw5.setText("");
+                    textAnsw5 = getString(resourceId5);
+                }
+            };
+
+            View.OnClickListener buttonAnswer = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String buttonNum = getResources().getResourceEntryName(v.getId());
+
+                    String editTextName = "getAnswerEdText" + buttonNum.substring(7);
+                    int editTextId = getResources().getIdentifier(editTextName, "id", requireContext().getPackageName());
+                    EditText editText = view.findViewById(editTextId);
+                    String answEditText = editText.getText().toString();
+
+                    String trAnswName = "answ1_" + actBtn + "_" + buttonNum.substring(7);
+                    int trAnsId = getResources().getIdentifier(trAnswName, "string", requireContext().getPackageName());
+                    String trAnsw = getString(trAnsId);
+
+
+                    int trFlAnswId = getResources().getIdentifier("trFlAnswText" + buttonNum.substring(7), "id", requireContext().getPackageName());
+                    TextView trFlAnsw = view.findViewById(trFlAnswId);
+
+
+                    if (!answEditText.equals("")) {
+                        if (answEditText.equals(trAnsw)) {
+                            trFlAnsw.setTextColor(Color.GREEN);
+                            trFlAnsw.setText(R.string.trueAnswer);
+                        } else {
+                            trFlAnsw.setTextColor(Color.RED);
+                            trFlAnsw.setText(R.string.falseAnswer);
+                        }
+                    }
+
+                }
+            };
+
+            View.OnClickListener buttonSolut = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String buttonNum = getResources().getResourceEntryName(v.getId());
+
+                    String trAnswName = "answ1_" + actBtn + "_" + buttonNum.substring(8);
+                    int trAnsId = getResources().getIdentifier(trAnswName, "string", requireContext().getPackageName());
+                    String trAnsw = getString(trAnsId);
+
+
+                    int answTextId = getResources().getIdentifier("trAnswText" + buttonNum.substring(8), "id", requireContext().getPackageName());
+                    TextView answText = view.findViewById(answTextId);
+
+
+                    trAnsw1.setText(trAnsw);
+
+                }
+            };
 
             imageLastList.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -96,97 +222,27 @@ public class Task1_5Fragment extends Fragment {
             });
 
 
-            answBottom.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (!editText.getText().toString().equals("")) {
-                        if (editText.getText().toString().equals(textAnsw)) {
-                            trFlAnsw.setTextColor(Color.GREEN);
-                            trFlAnsw.setText(R.string.trueAnswer);
-                        } else {
-                            trFlAnsw.setTextColor(Color.RED);
-                            trFlAnsw.setText(R.string.falseAnswer);
-                        }
-                    }
-                }
-            });
 
-            solutBottom.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    trAnsw.setText(textAnsw);
-                }
-            });
-            buttonTask1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int resourceId = selectedGroupResourcesAnsw[0];
-                    imageTask.setImageResource(selectedGroupResourcesTask[0]);
-                    trFlAnsw.setText("");
-                    trAnsw.setText("");
-                    textAnsw = getString(resourceId);
-                }
-            });
-            buttonTask2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int resourceId = selectedGroupResourcesAnsw[1];
-                    imageTask.setImageResource(selectedGroupResourcesTask[1]);
-                    trFlAnsw.setText("");
-                    trAnsw.setText("");
-                    textAnsw = getString(resourceId);
-                }
-            });
-            buttonTask3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int resourceId = selectedGroupResourcesAnsw[2];
-                    imageTask.setImageResource(selectedGroupResourcesTask[2]);
-                    trFlAnsw.setText("");
-                    trAnsw.setText("");
-                    textAnsw = getString(resourceId);
-                }
-            });
-            buttonTask4.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int resourceId = selectedGroupResourcesAnsw[3];
-                    imageTask.setImageResource(selectedGroupResourcesTask[3]);
-                    trFlAnsw.setText("");
-                    trAnsw.setText("");
-                    textAnsw = getString(resourceId);
-                }
-            });
-            buttonTask5.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int resourceId = selectedGroupResourcesAnsw[4];
-                    imageTask.setImageResource(selectedGroupResourcesTask[4]);
-                    trFlAnsw.setText("");
-                    trAnsw.setText("");
-                    textAnsw = getString(resourceId);
-                }
-            });
-            buttonTask6.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int resourceId = selectedGroupResourcesAnsw[5];
-                    imageTask.setImageResource(selectedGroupResourcesTask[5]);
-                    trFlAnsw.setText("");
-                    trAnsw.setText("");
-                    textAnsw = getString(resourceId);
-                }
-            });
-            buttonTask7.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int resourceId = selectedGroupResourcesAnsw[6];
-                    imageTask.setImageResource(selectedGroupResourcesTask[6]);
-                    trFlAnsw.setText("");
-                    trAnsw.setText("");
-                    textAnsw = getString(resourceId);
-                }
-            });
+            answBottom1.setOnClickListener(buttonAnswer);
+            answBottom2.setOnClickListener(buttonAnswer);
+            answBottom3.setOnClickListener(buttonAnswer);
+            answBottom4.setOnClickListener(buttonAnswer);
+            answBottom5.setOnClickListener(buttonAnswer);
+
+            solutBottom1.setOnClickListener(buttonSolut);
+            solutBottom2.setOnClickListener(buttonSolut);
+            solutBottom3.setOnClickListener(buttonSolut);
+            solutBottom4.setOnClickListener(buttonSolut);
+            solutBottom5.setOnClickListener(buttonSolut);
+
+            buttonTask1.setOnClickListener(buttonClickListener);
+            buttonTask2.setOnClickListener(buttonClickListener);
+            buttonTask3.setOnClickListener(buttonClickListener);
+            buttonTask4.setOnClickListener(buttonClickListener);
+            buttonTask5.setOnClickListener(buttonClickListener);
+            buttonTask6.setOnClickListener(buttonClickListener);
+            buttonTask7.setOnClickListener(buttonClickListener);
+
         }
         return view;
     }

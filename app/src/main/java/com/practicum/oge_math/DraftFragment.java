@@ -1,11 +1,8 @@
 package com.practicum.oge_math;
 
 import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -19,8 +16,7 @@ import com.kyanogen.signatureview.SignatureView;
 import yuku.ambilwarna.AmbilWarnaDialog;
 
 
-
-public class TheoryFragment extends Fragment {
+public class DraftFragment extends Fragment {
     private SignatureView signatureView;
     ImageButton imgEraser, imgColor;
     SeekBar seekBar;
@@ -28,21 +24,17 @@ public class TheoryFragment extends Fragment {
     private int defaultcolor = (R.color.black);// = (R.color.black);
 
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_theory, container, false);
+        View view = inflater.inflate(R.layout.fragment_draft, container, false);
         signatureView = view.findViewById(R.id.signature_view);
-
 
         imgEraser = view.findViewById(R.id.btnEraser);
         imgColor = view.findViewById(R.id.btnColor);
         seekBar = view.findViewById(R.id.penSize);
         txtpensize = view.findViewById(R.id.TxtPenSize);
-
 
         signatureView.setPenColor(defaultcolor);
 
@@ -57,14 +49,10 @@ public class TheoryFragment extends Fragment {
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         imgEraser.setOnClickListener(new View.OnClickListener() {
@@ -101,8 +89,5 @@ public class TheoryFragment extends Fragment {
             });
             ambilWarnaDialog.show();
         }
-
-
-
 
 }

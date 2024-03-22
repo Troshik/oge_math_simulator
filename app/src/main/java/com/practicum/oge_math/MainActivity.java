@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.ImageButton;
 
 
-public class MainActivity extends AppCompatActivity implements TasksFragment.TasksInterface, Task6_19Fragment.TasksInterface, Task20_25Fragment.TasksInterface {
+public class MainActivity extends AppCompatActivity implements TasksFragment.TasksInterface,Task1_5Fragment.TasksInterface, Task6_19Fragment.TasksInterface, Task20_25Fragment.TasksInterface, DevelopFragment.TasksInterface {
     public ImageButton openTasksButton, openTheoryButton, openDraftButton, openStatisticsButton;
     private final TasksFragment tasksFragment = new TasksFragment();
-    TheoryFragment theoryFragment = new TheoryFragment();
+    DraftFragment draftFragment = new DraftFragment();
     public Fragment activeTaskFragment = tasksFragment;
     public String activeNum;
 
@@ -31,13 +31,14 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
 
         openTasksButton = findViewById(R.id.openTasksButton);
         openTheoryButton = findViewById(R.id.openTheoryButton);
+        openDraftButton = findViewById(R.id.openDraftButton);
         openTasksButton.setColorFilter(R.color.nodarkblue);
 
-        openTheoryButton.setOnClickListener(new View.OnClickListener() {
+        openDraftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setNewFragment(theoryFragment, "0");
-                openTheoryButton.setColorFilter(R.color.nodarkblue);;
+                setNewFragment(draftFragment, "0");
+                openDraftButton.setColorFilter(R.color.nodarkblue);;
             }
         });
         openTasksButton.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
         ft.replace(R.id.framelayout, fragment);
         openTasksButton.setColorFilter(null);
         openTheoryButton.setColorFilter(null);
+        openDraftButton.setColorFilter(null);
         ft.commit();
     }
     public void setActiveFragment(Fragment fr, String btn_num){

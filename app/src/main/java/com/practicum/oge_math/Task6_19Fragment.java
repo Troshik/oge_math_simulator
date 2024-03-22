@@ -27,9 +27,6 @@ public class Task6_19Fragment extends Fragment {
         void setNewFragment(Fragment fragment, String buttonNumber);
     }
 
-    public void YourClass(Context context) {
-    }
-
     TasksInterface newFr;
     String textAnsw;
 
@@ -62,8 +59,8 @@ public class Task6_19Fragment extends Fragment {
         Button buttonTask7 = view.findViewById(R.id.buttonTask7);
         EditText editText = view.findViewById(R.id.getAnswerEdText);
         TextView trFlAnsw = view.findViewById(R.id.trFlAnswText);
-        TextView trAnsw = view.findViewById(R.id.trAnswText);
-        ImageView imageTask = view.findViewById(R.id.imageTask);
+        TextView trAnsw = view.findViewById(R.id.trAnswText1);
+        ImageView imageTask = view.findViewById(R.id.imageTask1);
 
 
         Bundle args = getArguments();
