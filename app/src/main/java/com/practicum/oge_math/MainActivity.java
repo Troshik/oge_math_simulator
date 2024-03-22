@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
     public ImageButton openTasksButton, openTheoryButton, openDraftButton, openStatisticsButton;
     private final TasksFragment tasksFragment = new TasksFragment();
     DraftFragment draftFragment = new DraftFragment();
+    TheoryFragment theoryFragment = new TheoryFragment();
     public Fragment activeTaskFragment = tasksFragment;
     public String activeNum;
 
@@ -46,6 +47,14 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
             public void onClick(View v) {
                 setNewFragment(activeTaskFragment, activeNum);
                 openTasksButton.setColorFilter(R.color.nodarkblue);
+            }
+        });
+
+        openTheoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setNewFragment(theoryFragment, "0");
+                openTheoryButton.setColorFilter(R.color.nodarkblue);
             }
         });
     }

@@ -16,12 +16,23 @@
             android:layout_height="match_parent">
 
 
+            <TextView
+                android:id="@+id/taskNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/openTasks"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
             <ImageButton
                 android:id="@+id/imageLastList"
                 android:layout_width="65dp"
                 android:layout_height="65dp"
+                android:scaleType="fitCenter"
+                android:backgroundTint="@android:color/transparent"
                 android:contentDescription="@string/ret"
-                android:src="?attr/homeAsUpIndicator"
+                android:src="@drawable/back"
                 app:cornerRadius="12dp"
                 tools:ignore="MissingConstraints" />
 
@@ -150,12 +161,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/openTasks"
                 android:src="@drawable/t6_1"
-                android:adjustViewBounds="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+                app:layout_constraintTop_toBottomOf="@+id/taskNum" />
 
             <ImageView
                 android:id="@+id/imageAns"
@@ -164,10 +175,10 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/openTasks"
                 android:src="@drawable/a21_1"
                 android:visibility="invisible"
-                android:adjustViewBounds="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"

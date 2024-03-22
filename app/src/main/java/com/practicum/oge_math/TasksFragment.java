@@ -36,7 +36,7 @@ public class TasksFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
 
         Button button1_5 = view.findViewById(R.id.button1_5);

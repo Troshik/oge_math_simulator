@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">Огэ тренажер математика</string>
+    <string name="app_name">ОГЭ Тренер</string>
     <string name="openTasks">Задания</string>
     <string name="openTheory">Теория</string>
     <string name="openDraft">Черновик</string>
+    <string name="develop">В разработке</string>
     <string name="openStatistics">Статистика</string>
     <string name="choiceTask">Выберите номер задания</string>
-    <string name="bt1_5">1-5</string>
+    <string name="bt1_5">1–5</string>
     <string name="bt1">1</string>
     <string name="bt2">2</string>
     <string name="bt3">3</string>

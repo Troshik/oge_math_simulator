@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class Task20_25Fragment extends Fragment {
@@ -39,6 +40,7 @@ public class Task20_25Fragment extends Fragment {
     }
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,11 +57,13 @@ public class Task20_25Fragment extends Fragment {
         Button buttonTask7 = view.findViewById(R.id.buttonTask7);
         ImageView imageTask = view.findViewById(R.id.imageTask1);
         ImageView imageAnsw = view.findViewById(R.id.imageAns);
+        TextView taskNum = view.findViewById(R.id.taskNum);
 
         Bundle args = getArguments();
         if (args != null) {
 
             String taskNumber = args.getString("buttonNumber", "0");
+            taskNum.setText("Задание " + taskNumber);
 
             imageTask.setImageResource(getResources().getIdentifier("t" + taskNumber+ "_" + 1, "drawable", requireContext().getPackageName()));
             imageAnsw.setImageResource(getResources().getIdentifier("a" + taskNumber+ "_" + 1, "drawable", requireContext().getPackageName()));

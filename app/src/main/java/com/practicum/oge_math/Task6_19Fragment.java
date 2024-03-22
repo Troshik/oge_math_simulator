@@ -41,6 +41,7 @@ public class Task6_19Fragment extends Fragment {
     }
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,11 +61,13 @@ public class Task6_19Fragment extends Fragment {
         EditText editText = view.findViewById(R.id.getAnswerEdText);
         TextView trFlAnsw = view.findViewById(R.id.trFlAnswText);
         TextView trAnsw = view.findViewById(R.id.trAnswText1);
-        ImageView imageTask = view.findViewById(R.id.imageTask1);
+        ImageView imageTask = view.findViewById(R.id.imageTask);
+        TextView taskNum = view.findViewById(R.id.taskNum);
 
 
         Bundle args = getArguments();
             String taskNumber = args.getString("buttonNumber", "0");
+            taskNum.setText("Задание " + taskNumber);
 
 
             textAnsw = getString(getResources().getIdentifier("answ" + taskNumber+ "_" + 1, "string", requireContext().getPackageName()));
