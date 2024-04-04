@@ -130,21 +130,31 @@
             </LinearLayout>
         </HorizontalScrollView>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/getAnswerEdText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/answer"
-            android:inputType="text"
+
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:padding="20dp"
-            android:textColor="?attr/textColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.079"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageTask" />
+            app:layout_constraintTop_toBottomOf="@+id/imageTask"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/filledTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/answer"
+                android:paddingHorizontal="20dp"
+                android:textColorHint="@color/gray">
+
+
+            </com.google.android.material.textfield.TextInputEditText>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/answBtn"

@@ -60,7 +60,7 @@ public class Task1_5Fragment extends Fragment {
         Button buttonTask6 = view.findViewById(R.id.buttonTask6);
         Button buttonTask7 = view.findViewById(R.id.buttonTask7);
 
-        EditText editText1 = view.findViewById(R.id.getAnswerEdText1);
+        EditText editText1 = view.findViewById(R.id.filledTextField1);
         TextView trAnsw1 = view.findViewById(R.id.trAnswText1);
         Button answBottom1 = view.findViewById(R.id.answBtn1);
         Button solutBottom1 = view.findViewById(R.id.solutBtn1);
@@ -68,28 +68,28 @@ public class Task1_5Fragment extends Fragment {
         TextView trFlAnsw1 = view.findViewById(R.id.trFlAnswText1);
 
 
-        EditText editText2 = view.findViewById(R.id.getAnswerEdText2);
+        EditText editText2 = view.findViewById(R.id.filledTextField2);
         TextView trAnsw2 = view.findViewById(R.id.trAnswText2);
         Button answBottom2 = view.findViewById(R.id.answBtn2);
         Button solutBottom2 = view.findViewById(R.id.solutBtn2);
         ImageView imageTask2 = view.findViewById(R.id.imageTask2);
         TextView trFlAnsw2 = view.findViewById(R.id.trFlAnswText2);
 
-        EditText editText3 = view.findViewById(R.id.getAnswerEdText3);
+        EditText editText3 = view.findViewById(R.id.filledTextField3);
         TextView trAnsw3 = view.findViewById(R.id.trAnswText3);
         Button answBottom3 = view.findViewById(R.id.answBtn3);
         Button solutBottom3 = view.findViewById(R.id.solutBtn3);
         ImageView imageTask3 = view.findViewById(R.id.imageTask3);
         TextView trFlAnsw3 = view.findViewById(R.id.trFlAnswText3);
 
-        EditText editText4 = view.findViewById(R.id.getAnswerEdText4);
+        EditText editText4 = view.findViewById(R.id.filledTextField4);
         TextView trAnsw4 = view.findViewById(R.id.trAnswText4);
         Button answBottom4 = view.findViewById(R.id.answBtn4);
         Button solutBottom4 = view.findViewById(R.id.solutBtn4);
         ImageView imageTask4 = view.findViewById(R.id.imageTask4);
         TextView trFlAnsw4 = view.findViewById(R.id.trFlAnswText4);
 
-        EditText editText5 = view.findViewById(R.id.getAnswerEdText5);
+        EditText editText5 = view.findViewById(R.id.filledTextField5);
         TextView trAnsw5 = view.findViewById(R.id.trAnswText5);
         Button answBottom5 = view.findViewById(R.id.answBtn5);
         Button solutBottom5 = view.findViewById(R.id.solutBtn5);
@@ -102,14 +102,19 @@ public class Task1_5Fragment extends Fragment {
 
             textAnsw1 = getString(getResources().getIdentifier("answ1_1_1", "string", requireContext().getPackageName()));
             imageTask1.setImageResource(getResources().getIdentifier("t1_1_1", "drawable", requireContext().getPackageName()));
-            textAnsw2 = getString(getResources().getIdentifier("answ1_2_1", "string", requireContext().getPackageName()));
-            imageTask2.setImageResource(getResources().getIdentifier("t1_2_1", "drawable", requireContext().getPackageName()));
-            textAnsw3 = getString(getResources().getIdentifier("answ1_3_1", "string", requireContext().getPackageName()));
-            imageTask3.setImageResource(getResources().getIdentifier("t1_3_1", "drawable", requireContext().getPackageName()));
-            textAnsw4 = getString(getResources().getIdentifier("answ1_4_1", "string", requireContext().getPackageName()));
-            imageTask4.setImageResource(getResources().getIdentifier("t1_4_1", "drawable", requireContext().getPackageName()));
-            textAnsw5 = getString(getResources().getIdentifier("answ1_5_1", "string", requireContext().getPackageName()));
-            imageTask5.setImageResource(getResources().getIdentifier("t1_5_1", "drawable", requireContext().getPackageName()));
+            editText1.setText("");
+            textAnsw2 = getString(getResources().getIdentifier("answ1_1_2", "string", requireContext().getPackageName()));
+            imageTask2.setImageResource(getResources().getIdentifier("t1_1_2", "drawable", requireContext().getPackageName()));
+            editText2.setText("");
+            textAnsw3 = getString(getResources().getIdentifier("answ1_1_3", "string", requireContext().getPackageName()));
+            imageTask3.setImageResource(getResources().getIdentifier("t1_1_3", "drawable", requireContext().getPackageName()));
+            editText3.setText("");
+            textAnsw4 = getString(getResources().getIdentifier("answ1_1_4", "string", requireContext().getPackageName()));
+            imageTask4.setImageResource(getResources().getIdentifier("t1_1_4", "drawable", requireContext().getPackageName()));
+            editText4.setText("");
+            textAnsw5 = getString(getResources().getIdentifier("answ1_1_5", "string", requireContext().getPackageName()));
+            imageTask5.setImageResource(getResources().getIdentifier("t1_1_5", "drawable", requireContext().getPackageName()));
+            editText5.setText("");
 
             actBtn  = "1";
 
@@ -164,7 +169,7 @@ public class Task1_5Fragment extends Fragment {
                 public void onClick(View v) {
                     String buttonNum = getResources().getResourceEntryName(v.getId());
 
-                    String editTextName = "getAnswerEdText" + buttonNum.substring(7);
+                    String editTextName = "filledTextField" + buttonNum.substring(7);
                     int editTextId = getResources().getIdentifier(editTextName, "id", requireContext().getPackageName());
                     EditText editText = view.findViewById(editTextId);
                     String answEditText = editText.getText().toString();
@@ -205,7 +210,7 @@ public class Task1_5Fragment extends Fragment {
                     TextView answText = view.findViewById(answTextId);
 
 
-                    trAnsw1.setText(trAnsw);
+                    answText.setText(trAnsw);
 
                 }
             };

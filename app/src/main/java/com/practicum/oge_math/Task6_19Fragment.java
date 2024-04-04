@@ -58,7 +58,7 @@ public class Task6_19Fragment extends Fragment {
         Button buttonTask5 = view.findViewById(R.id.buttonTask5);
         Button buttonTask6 = view.findViewById(R.id.buttonTask6);
         Button buttonTask7 = view.findViewById(R.id.buttonTask7);
-        EditText editText = view.findViewById(R.id.getAnswerEdText);
+        EditText editText = view.findViewById(R.id.filledTextField);
         TextView trFlAnsw = view.findViewById(R.id.trFlAnswText);
         TextView trAnsw = view.findViewById(R.id.trAnswText1);
         ImageView imageTask = view.findViewById(R.id.imageTask);
@@ -101,6 +101,7 @@ public class Task6_19Fragment extends Fragment {
 //                v.setBackgroundResource(R.color.nodarkblue);
 //                v.setBackgroundColor(R.color.nodarkblue);
 //                ((Button) v).setTextColor(Color.BLACK);
+                editText.setText("");
                 String imageName = "t" + taskNumber+ "_" + num;
                 String answName = "answ" + taskNumber+ "_" + num;
                 int imageResourceId = getResources().getIdentifier(imageName, "drawable", requireContext().getPackageName());
