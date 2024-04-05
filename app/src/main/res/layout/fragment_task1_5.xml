@@ -20,8 +20,10 @@
                 android:id="@+id/imageLastList"
                 android:layout_width="65dp"
                 android:layout_height="65dp"
+                android:scaleType="fitCenter"
+                android:backgroundTint="@android:color/transparent"
                 android:contentDescription="@string/ret"
-                android:src="?attr/homeAsUpIndicator"
+                android:src="@drawable/back"
                 app:cornerRadius="12dp"
                 tools:ignore="MissingConstraints" />
 
@@ -162,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/answer"
                     android:paddingHorizontal="20dp"
-                    android:textColorHint="@color/gray">
+                    android:textColor="@color/black">
 
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -254,7 +256,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/answer"
                     android:paddingHorizontal="20dp"
-                    android:textColorHint="@color/gray">
+                    android:textColor="@color/black">
 
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -347,7 +349,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/answer"
                     android:paddingHorizontal="20dp"
-                    android:textColorHint="@color/gray">
+                    android:textColor="@color/black">
 
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -439,7 +441,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/answer"
                     android:paddingHorizontal="20dp"
-                    android:textColorHint="@color/gray">
+                    android:textColor="@color/black">
 
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -530,7 +532,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/answer"
                     android:paddingHorizontal="20dp"
-                    android:textColorHint="@color/gray">
+                    android:textColor="@color/black">
 
 
                 </com.google.android.material.textfield.TextInputEditText>

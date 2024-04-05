@@ -147,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/answer"
                 android:paddingHorizontal="20dp"
-                android:textColorHint="@color/gray">
+                android:textColor="@color/black">
 
 
             </com.google.android.material.textfield.TextInputEditText>
