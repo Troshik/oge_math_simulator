@@ -133,6 +133,7 @@ public class Task1_5Fragment extends Fragment {
                     trAnsw1.setText("");
                     trFlAnsw1.setText("");
                     textAnsw1 = getString(resourceId1);
+                    editText1.setText("");
 
                     int imageResourceId2 = getResources().getIdentifier("t1_" + actBtn + "_2", "drawable", requireContext().getPackageName());
                     int resourceId2 = getResources().getIdentifier("answ1_" + actBtn + "_2", "string", requireContext().getPackageName());
@@ -140,6 +141,7 @@ public class Task1_5Fragment extends Fragment {
                     trAnsw2.setText("");
                     trFlAnsw2.setText("");
                     textAnsw2 = getString(resourceId2);
+                    editText2.setText("");
 
                     int imageResourceId3 = getResources().getIdentifier("t1_" + actBtn + "_3", "drawable", requireContext().getPackageName());
                     int resourceId3 = getResources().getIdentifier("answ1_" + actBtn + "_3", "string", requireContext().getPackageName());
@@ -147,6 +149,7 @@ public class Task1_5Fragment extends Fragment {
                     trAnsw3.setText("");
                     trFlAnsw3.setText("");
                     textAnsw3 = getString(resourceId3);
+                    editText3.setText("");
 
                     int imageResourceId4 = getResources().getIdentifier("t1_" + actBtn + "_4", "drawable", requireContext().getPackageName());
                     int resourceId4 = getResources().getIdentifier("answ1_" + actBtn + "_4", "string", requireContext().getPackageName());
@@ -154,6 +157,7 @@ public class Task1_5Fragment extends Fragment {
                     trAnsw4.setText("");
                     trFlAnsw4.setText("");
                     textAnsw4 = getString(resourceId4);
+                    editText4.setText("");
 
                     int imageResourceId5 = getResources().getIdentifier("t1_" + actBtn + "_5", "drawable", requireContext().getPackageName());
                     int resourceId5 = getResources().getIdentifier("answ1_" + actBtn + "_5", "string", requireContext().getPackageName());
@@ -161,6 +165,7 @@ public class Task1_5Fragment extends Fragment {
                     trAnsw5.setText("");
                     trFlAnsw5.setText("");
                     textAnsw5 = getString(resourceId5);
+                    editText5.setText("");
                 }
             };
 
