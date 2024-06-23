@@ -52,6 +52,9 @@ public class Task1_5Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_task1_5, container, false);
 
         ImageButton imageLastList = view.findViewById(R.id.imageLastList);
+        ImageButton infoBotttom = view.findViewById(R.id.infoButton);
+        ImageButton closeBotttom = view.findViewById(R.id.closeButton);
+        TextView textInfo = view.findViewById(R.id.textInfo);
         Button buttonTask1 = view.findViewById(R.id.buttonTask1);
         Button buttonTask2 = view.findViewById(R.id.buttonTask2);
         Button buttonTask3 = view.findViewById(R.id.buttonTask3);
@@ -219,6 +222,22 @@ public class Task1_5Fragment extends Fragment {
 
                 }
             };
+
+            infoBotttom.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    textInfo.setVisibility(View.VISIBLE);
+                    closeBotttom.setVisibility(View.VISIBLE);
+                }
+            });
+
+            closeBotttom.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    textInfo.setVisibility(View.INVISIBLE);
+                    closeBotttom.setVisibility(View.INVISIBLE);
+                }
+            });
 
             imageLastList.setOnClickListener(new View.OnClickListener() {
                 @Override

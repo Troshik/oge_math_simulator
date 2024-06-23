@@ -1,5 +1,5 @@
 <resources>
-    <string name="t1">Найдите значение выражения 2 + 1</string>
+    <string name="info">Все задания взяты с официального сайта ФИПИ</string>
     <string name="answ1_1_1">3475</string>
     <string name="answ1_1_2">16</string>
     <string name="answ1_1_3">36</string>

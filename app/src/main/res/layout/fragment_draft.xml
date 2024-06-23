@@ -37,14 +37,18 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_weight="1"></SeekBar>
+                android:layout_weight="1"
+                tools:ignore="NestedWeights">
+            </SeekBar>
 
             <TextView
                 android:id="@+id/TxtPenSize"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5dp"
-                android:textColor="@color/black"></TextView>
+                android:text="@string/brush_size"
+                android:textColor="@color/black">
+
+            </TextView>
 
         </LinearLayout>
 
@@ -63,7 +67,9 @@
                 android:background="@color/white"
                 android:contentDescription="@string/btnEraser_descr"
                 android:scaleType="center"
-                android:src="@drawable/ic_eraser"></ImageButton>
+                android:src="@drawable/ic_eraser"
+                tools:ignore="NestedWeights">
+            </ImageButton>
 
             <ImageButton
                 android:id="@+id/btnColor"
@@ -73,7 +79,8 @@
                 android:background="@color/white"
                 android:contentDescription="@string/btnColor_descr"
                 android:scaleType="center"
-                android:src="@drawable/ic_color"></ImageButton>
+                android:src="@drawable/ic_color">
+            </ImageButton>
         </LinearLayout>
     </LinearLayout>
 

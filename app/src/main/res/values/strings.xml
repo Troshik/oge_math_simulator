@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ОГЭ Тренер</string>
     <string name="openTasks">Задания</string>
+    <string name="openTasks1_5">Задания 1–5</string>
     <string name="openTheory">Теория</string>
     <string name="openDraft">Черновик</string>
     <string name="develop">В разработке</string>
@@ -39,7 +40,10 @@
     <string name="check">Проверить</string>
     <string name="solut">Решение</string>
     <string name="answer">Ответ</string>
+    <string name="open">Открыть</string>
+    <string name="close">Закрыть</string>
     <string name="ret">return</string>
     <string name="btnEraser_descr">Ластик</string>
     <string name="btnColor_descr">Цвет</string>
+    <string name="brush_size">5dp</string>
 </resources>

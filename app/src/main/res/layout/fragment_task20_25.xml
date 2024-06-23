@@ -184,6 +184,50 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/solutBtn" />
 
+            <ImageButton
+                android:id="@+id/infoButton"
+                android:layout_width="40dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:backgroundTint="@android:color/transparent"
+                android:cropToPadding="false"
+                android:scaleType="centerCrop"
+                android:src="@drawable/info"
+                app:layout_constraintBottom_toBottomOf="@+id/taskNum"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/taskNum"
+                app:layout_constraintVertical_bias="0.0"
+                android:contentDescription="@string/open" />
+
+            <TextView
+                android:id="@+id/textInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/text_style"
+                android:padding="5dp"
+                android:paddingEnd="10dp"
+                android:shadowColor="@color/nodarkblue"
+                android:text="@string/info"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@+id/infoButton"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/taskNum"
+                app:layout_constraintTop_toBottomOf="@+id/infoButton"
+                tools:ignore="RtlSymmetry" />
+
+            <ImageButton
+                android:id="@+id/closeButton"
+                android:layout_width="37dp"
+                android:layout_height="31dp"
+                android:backgroundTint="@android:color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/close"
+                android:visibility="invisible"
+                android:contentDescription="@string/close"
+                app:layout_constraintEnd_toEndOf="@+id/textInfo"
+                app:layout_constraintTop_toTopOf="@+id/textInfo" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

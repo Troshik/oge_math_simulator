@@ -51,6 +51,8 @@ public class Task6_19Fragment extends Fragment {
         ImageButton imageLastList = view.findViewById(R.id.imageLastList);
         Button answBottom = view.findViewById(R.id.answBtn);
         Button solutBottom = view.findViewById(R.id.solutBtn);
+        ImageButton infoBotttom = view.findViewById(R.id.infoButton);
+        ImageButton closeBotttom = view.findViewById(R.id.closeButton);
         Button buttonTask1 = view.findViewById(R.id.buttonTask1);
         Button buttonTask2 = view.findViewById(R.id.buttonTask2);
         Button buttonTask3 = view.findViewById(R.id.buttonTask3);
@@ -59,6 +61,7 @@ public class Task6_19Fragment extends Fragment {
         Button buttonTask6 = view.findViewById(R.id.buttonTask6);
         Button buttonTask7 = view.findViewById(R.id.buttonTask7);
         EditText editText = view.findViewById(R.id.filledTextField);
+        TextView textInfo = view.findViewById(R.id.textInfo);
         TextView trFlAnsw = view.findViewById(R.id.trFlAnswText);
         TextView trAnsw = view.findViewById(R.id.trAnswText1);
         ImageView imageTask = view.findViewById(R.id.imageTask);
@@ -144,6 +147,22 @@ public class Task6_19Fragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     trAnsw.setText(textAnsw);
+                }
+            });
+
+            infoBotttom.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    textInfo.setVisibility(View.VISIBLE);
+                    closeBotttom.setVisibility(View.VISIBLE);
+                }
+            });
+
+            closeBotttom.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    textInfo.setVisibility(View.INVISIBLE);
+                    closeBotttom.setVisibility(View.INVISIBLE);
                 }
             });
 
