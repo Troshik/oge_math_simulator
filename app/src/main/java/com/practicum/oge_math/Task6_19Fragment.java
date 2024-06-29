@@ -3,14 +3,12 @@ package com.practicum.oge_math;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +17,6 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -48,7 +45,7 @@ public class Task6_19Fragment extends Fragment {
     }
 
 
-    @SuppressLint({"SetTextI18n", "SetJavaScriptEnabled"})
+    @SuppressLint({"SetTextI18n", "SetJavaScriptEnabled", "DiscouragedApi"})
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -80,12 +77,13 @@ public class Task6_19Fragment extends Fragment {
 
 
         Bundle args = getArguments();
-            String taskNumber = args.getString("buttonNumber", "0");
+        assert args != null;
+        String taskNumber = args.getString("buttonNumber", "0");
             taskNum.setText("Задание " + taskNumber);
 
 
             textAnsw = getString(getResources().getIdentifier("answ" + taskNumber + "_" + 1, "string", requireContext().getPackageName()));
-            int htmlResourceId = getResources().getIdentifier("t" + taskNumber + "_" + 1, "raw", requireContext().getPackageName());
+            int htmlResourceId = getResources().getIdentifier("a21_2", "raw", requireContext().getPackageName());
             String htmlContent = readHtmlFromRawResource(htmlResourceId);
             textTask.getSettings().setJavaScriptEnabled(true);
             textTask.loadDataWithBaseURL(null, htmlContent, "text/html", "UTF-8", null);

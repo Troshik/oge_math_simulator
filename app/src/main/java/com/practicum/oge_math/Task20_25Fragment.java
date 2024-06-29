@@ -24,8 +24,6 @@ public class Task20_25Fragment extends Fragment {
         void setNewFragment(Fragment fragment, String buttonNumber);
     }
 
-    public void YourClass(Context context) {
-    }
 
     TasksInterface newFr;
 
@@ -40,7 +38,7 @@ public class Task20_25Fragment extends Fragment {
     }
 
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "DiscouragedApi"})
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

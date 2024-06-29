@@ -3,7 +3,6 @@ package com.practicum.oge_math;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -33,8 +32,6 @@ public class Task1_5Fragment extends Fragment {
         void setNewFragment(Fragment fragment, String buttonNumber);
     }
 
-    public void YourClass(Context context) {
-    }
 
     TasksInterface newFr;
     String textAnsw1, textAnsw2, textAnsw3, textAnsw4, textAnsw5, actBtn;
@@ -45,7 +42,7 @@ public class Task1_5Fragment extends Fragment {
         try {
             newFr = (Task1_5Fragment.TasksInterface) activity;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + "must be bebeeb");
+            throw new ClassCastException(activity + "must be bebeeb");
         }
     }
 
