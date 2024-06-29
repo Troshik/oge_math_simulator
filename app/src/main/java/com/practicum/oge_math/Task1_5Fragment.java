@@ -201,8 +201,7 @@ public class Task1_5Fragment extends Fragment {
                     trAnsw5.setText("");
                     trFlAnsw5.setText("");
                     textAnsw5 = getString(resourceId5);
-                    editText5.setText("");
-                }
+                    editText5.setText("");                }
             };
 
             View.OnClickListener buttonAnswer = new View.OnClickListener() {
