@@ -42,6 +42,7 @@
     <string name="answer">Ответ</string>
     <string name="open">Открыть</string>
     <string name="close">Закрыть</string>
+    <string name="undo">Вернуть</string>
     <string name="ret">return</string>
     <string name="btnEraser_descr">Ластик</string>
     <string name="btnColor_descr">Цвет</string>

@@ -24,7 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,8 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                tools:ignore="NestedWeights">
-            </SeekBar>
+                tools:ignore="NestedWeights"/>
 
             <TextView
                 android:id="@+id/TxtPenSize"
@@ -60,6 +60,17 @@
             android:layout_weight="1">
 
             <ImageButton
+                android:id="@+id/btnUndo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/undo"
+                android:contentDescription="TODO" />
+
+            <ImageButton
                 android:id="@+id/btnEraser"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
@@ -68,8 +79,7 @@
                 android:contentDescription="@string/btnEraser_descr"
                 android:scaleType="center"
                 android:src="@drawable/ic_eraser"
-                tools:ignore="NestedWeights">
-            </ImageButton>
+                tools:ignore="NestedWeights"/>
 
             <ImageButton
                 android:id="@+id/btnColor"
@@ -79,8 +89,7 @@
                 android:background="@color/white"
                 android:contentDescription="@string/btnColor_descr"
                 android:scaleType="center"
-                android:src="@drawable/ic_color">
-            </ImageButton>
+                android:src="@drawable/ic_color"/>
         </LinearLayout>
     </LinearLayout>
 

@@ -10,15 +10,22 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 
 public class Task6_19Fragment extends Fragment {
@@ -41,7 +48,7 @@ public class Task6_19Fragment extends Fragment {
     }
 
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "SetJavaScriptEnabled"})
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,8 +71,12 @@ public class Task6_19Fragment extends Fragment {
         TextView textInfo = view.findViewById(R.id.textInfo);
         TextView trFlAnsw = view.findViewById(R.id.trFlAnswText);
         TextView trAnsw = view.findViewById(R.id.trAnswText1);
-        ImageView imageTask = view.findViewById(R.id.imageTask);
+        WebView textTask = view.findViewById(R.id.textTask);
         TextView taskNum = view.findViewById(R.id.taskNum);
+
+        WebSettings webSettings = textTask.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
 
 
         Bundle args = getArguments();
@@ -73,9 +84,11 @@ public class Task6_19Fragment extends Fragment {
             taskNum.setText("Задание " + taskNumber);
 
 
-            textAnsw = getString(getResources().getIdentifier("answ" + taskNumber+ "_" + 1, "string", requireContext().getPackageName()));
-            imageTask.setImageResource(getResources().getIdentifier("t" + taskNumber+ "_" + 1, "drawable", requireContext().getPackageName()));
-
+            textAnsw = getString(getResources().getIdentifier("answ" + taskNumber + "_" + 1, "string", requireContext().getPackageName()));
+            int htmlResourceId = getResources().getIdentifier("t" + taskNumber + "_" + 1, "raw", requireContext().getPackageName());
+            String htmlContent = readHtmlFromRawResource(htmlResourceId);
+            textTask.getSettings().setJavaScriptEnabled(true);
+            textTask.loadDataWithBaseURL(null, htmlContent, "text/html", "UTF-8", null);
 
             Fragment TasksList = new TasksFragment();
 
@@ -105,11 +118,17 @@ public class Task6_19Fragment extends Fragment {
 //                v.setBackgroundColor(R.color.nodarkblue);
 //                ((Button) v).setTextColor(Color.BLACK);
                 editText.setText("");
-                String imageName = "t" + taskNumber+ "_" + num;
+                String htmlName = "t" + taskNumber+ "_" + num;//String imageName = "t" + taskNumber+ "_" + num;
                 String answName = "answ" + taskNumber+ "_" + num;
-                int imageResourceId = getResources().getIdentifier(imageName, "drawable", requireContext().getPackageName());
+                int htmlResourceId = getResources().getIdentifier(htmlName, "raw", requireContext().getPackageName());//int imageResourceId = getResources().getIdentifier(imageName, "drawable", requireContext().getPackageName());
                 int resourceId = getResources().getIdentifier(answName, "string", requireContext().getPackageName());
-                imageTask.setImageResource(imageResourceId);
+
+                String htmlContent = readHtmlFromRawResource(htmlResourceId);
+
+                textTask.getSettings().setJavaScriptEnabled(true);
+                textTask.loadDataWithBaseURL(null, htmlContent, "text/html", "UTF-8", null);
+
+                //textTask.setText(Html.fromHtml(htmlContent.toString(), Html.FROM_HTML_MODE_LEGACY));
                 trFlAnsw.setText("");
                 trAnsw.setText("");
                 textAnsw = getString(resourceId);
@@ -174,6 +193,27 @@ public class Task6_19Fragment extends Fragment {
             buttonTask6.setOnClickListener(buttonClickListener);
             buttonTask7.setOnClickListener(buttonClickListener);
         return view;
+    }
+
+    private String readHtmlFromRawResource(int resourceId) {
+        InputStream inputStream = getResources().openRawResource(resourceId);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder stringBuilder = new StringBuilder();
+        String line;
+        try {
+            while ((line = reader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return stringBuilder.toString();
     }
 
 

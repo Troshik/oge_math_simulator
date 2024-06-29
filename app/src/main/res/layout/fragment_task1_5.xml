@@ -139,7 +139,7 @@
                 android:layout_marginEnd="20dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/openTasks"
-                android:src="@drawable/t6_1"
+                android:src="@drawable/t1_1_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/taskNum" />
@@ -224,7 +224,7 @@
                 app:layout_constraintTop_toTopOf="@+id/solutBtn2" />
 
 
-            <ImageView
+            <WebView
                 android:id="@+id/imageTask2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -233,7 +233,6 @@
                 android:layout_marginEnd="20dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/openTasks1_5"
-                android:src="@drawable/t6_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/solutBtn1" />
@@ -317,7 +316,7 @@
                 app:layout_constraintStart_toEndOf="@+id/solutBtn1"
                 app:layout_constraintTop_toTopOf="@+id/solutBtn1" />
 
-            <ImageView
+            <WebView
                 android:id="@+id/imageTask3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -326,7 +325,6 @@
                 android:layout_marginEnd="20dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/openTasks"
-                android:src="@drawable/t6_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/solutBtn2" />
@@ -409,7 +407,7 @@
                 app:layout_constraintStart_toEndOf="@+id/solutBtn3"
                 app:layout_constraintTop_toTopOf="@+id/solutBtn3" />
 
-            <ImageView
+            <WebView
                 android:id="@+id/imageTask4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -418,7 +416,6 @@
                 android:layout_marginEnd="20dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/openTasks"
-                android:src="@drawable/t6_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/solutBtn3" />
@@ -500,7 +497,7 @@
                 app:layout_constraintStart_toEndOf="@+id/solutBtn4"
                 app:layout_constraintTop_toTopOf="@+id/solutBtn4" />
 
-            <ImageView
+            <WebView
                 android:id="@+id/imageTask5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -509,7 +506,6 @@
                 android:layout_marginEnd="20dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/openTasks"
-                android:src="@drawable/t6_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/solutBtn4" />
