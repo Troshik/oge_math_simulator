@@ -155,7 +155,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageTask1" />
 
-            <ImageView
+            <WebView
                 android:id="@+id/imageTask1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -163,12 +163,11 @@
                 android:layout_marginEnd="20dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/openTasks"
-                android:src="@drawable/t6_2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/taskNum" />
 
-            <ImageView
+            <WebView
                 android:id="@+id/imageAns"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -177,7 +176,6 @@
                 android:layout_marginEnd="20dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/openTasks"
-                android:src="@drawable/a21_1"
                 android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

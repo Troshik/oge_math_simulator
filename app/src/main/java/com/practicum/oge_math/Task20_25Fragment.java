@@ -12,10 +12,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 
 public class Task20_25Fragment extends Fragment {
@@ -38,7 +45,7 @@ public class Task20_25Fragment extends Fragment {
     }
 
 
-    @SuppressLint({"SetTextI18n", "DiscouragedApi"})
+    @SuppressLint({"SetTextI18n", "DiscouragedApi", "SetJavaScriptEnabled"})
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,9 +63,14 @@ public class Task20_25Fragment extends Fragment {
         Button buttonTask5 = view.findViewById(R.id.buttonTask5);
         Button buttonTask6 = view.findViewById(R.id.buttonTask6);
         Button buttonTask7 = view.findViewById(R.id.buttonTask7);
-        ImageView imageTask = view.findViewById(R.id.imageTask1);
-        ImageView imageAnsw = view.findViewById(R.id.imageAns);
+        WebView textTask = view.findViewById(R.id.imageTask1);
+        WebView textAnsw = view.findViewById(R.id.imageAns);
         TextView taskNum = view.findViewById(R.id.taskNum);
+
+        WebSettings webSettings1 = textTask.getSettings();
+        webSettings1.setJavaScriptEnabled(true);
+        WebSettings webSettings2 = textAnsw.getSettings();
+        webSettings2.setJavaScriptEnabled(true);
 
         Bundle args = getArguments();
         if (args != null) {
@@ -66,25 +78,40 @@ public class Task20_25Fragment extends Fragment {
             String taskNumber = args.getString("buttonNumber", "0");
             taskNum.setText("Задание " + taskNumber);
 
-            imageTask.setImageResource(getResources().getIdentifier("t" + taskNumber+ "_" + 1, "drawable", requireContext().getPackageName()));
-            imageAnsw.setImageResource(getResources().getIdentifier("a" + taskNumber+ "_" + 1, "drawable", requireContext().getPackageName()));
+            //imageTask.setImageResource(getResources().getIdentifier("t" + taskNumber+ "_" + 1, "drawable", requireContext().getPackageName()));
+            //imageAnsw.setImageResource(getResources().getIdentifier("a" + taskNumber+ "_" + 1, "drawable", requireContext().getPackageName()));
+
+            int htmlResourceId1 = getResources().getIdentifier("t" + taskNumber+ "_" + 1, "raw", requireContext().getPackageName());
+            String htmlContent1 = readHtmlFromRawResource(htmlResourceId1);
+            textTask.getSettings().setJavaScriptEnabled(true);
+            textTask.loadDataWithBaseURL(null, htmlContent1, "text/html", "UTF-8", null);
+
+            int htmlResourceId2 = getResources().getIdentifier("a" + taskNumber+ "_" + 1, "raw", requireContext().getPackageName());
+            String htmlContent2 = readHtmlFromRawResource(htmlResourceId2);
+            textAnsw.getSettings().setJavaScriptEnabled(true);
+            textAnsw.loadDataWithBaseURL(null, htmlContent2, "text/html", "UTF-8", null);
 
             Fragment TasksList = new TasksFragment();
             View.OnClickListener buttonClickListener = new View.OnClickListener() {
                 @SuppressLint("ResourceAsColor")
                 @Override
                 public void onClick(View v) {
-                    imageAnsw.setVisibility(View.INVISIBLE);
+                    textAnsw.setVisibility(View.INVISIBLE);
                     String buttonName = getResources().getResourceEntryName(v.getId());
 
                     int num = Integer.parseInt(buttonName.substring(10));
 
-                    String imageName = "t" + taskNumber+ "_" + num;
+                    String taskName = "t" + taskNumber+ "_" + num;
                     String answName = "a" + taskNumber+ "_" + num;
-                    int imageResourceId = getResources().getIdentifier(imageName, "drawable", requireContext().getPackageName());
-                    int answResourceId = getResources().getIdentifier(answName, "drawable", requireContext().getPackageName());
-                    imageTask.setImageResource(imageResourceId);
-                    imageAnsw.setImageResource(answResourceId);
+                    int htmlResourceId1 = getResources().getIdentifier(taskName, "raw", requireContext().getPackageName());
+                    String htmlContent1 = readHtmlFromRawResource(htmlResourceId1);
+                    textTask.getSettings().setJavaScriptEnabled(true);
+                    textTask.loadDataWithBaseURL(null, htmlContent1, "text/html", "UTF-8", null);
+
+                    int htmlResourceId2 = getResources().getIdentifier(answName, "raw", requireContext().getPackageName());
+                    String htmlContent2 = readHtmlFromRawResource(htmlResourceId2);
+                    textAnsw.getSettings().setJavaScriptEnabled(true);
+                    textAnsw.loadDataWithBaseURL(null, htmlContent2, "text/html", "UTF-8", null);
                 }
             };
 
@@ -102,7 +129,7 @@ public class Task20_25Fragment extends Fragment {
             solutBottom.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    imageAnsw.setVisibility(View.VISIBLE);
+                    textAnsw.setVisibility(View.VISIBLE);
                 }
             });
 
@@ -132,5 +159,25 @@ public class Task20_25Fragment extends Fragment {
             buttonTask7.setOnClickListener(buttonClickListener);
         }
         return view;
+    }
+    private String readHtmlFromRawResource(int resourceId) {
+        InputStream inputStream = getResources().openRawResource(resourceId);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder stringBuilder = new StringBuilder();
+        String line;
+        try {
+            while ((line = reader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return stringBuilder.toString();
     }
 }
