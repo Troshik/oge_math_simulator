@@ -103,15 +103,7 @@ public class TasksFragment extends Fragment  {
         button8.setOnClickListener(buttonClickListener6_19);
         button9.setOnClickListener(buttonClickListener6_19);
         button10.setOnClickListener(buttonClickListener6_19);
-        button11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                newFr.setNewFragment(Develop, "0");
-                MainActivity mainActivity = (MainActivity) getActivity();
-                assert mainActivity != null;
-                mainActivity.setActiveFragment(Develop, "0");
-            }
-        });
+        button11.setOnClickListener(buttonClickListener6_19);
         button12.setOnClickListener(buttonClickListener6_19);
         button13.setOnClickListener(buttonClickListener6_19);
         button14.setOnClickListener(buttonClickListener6_19);

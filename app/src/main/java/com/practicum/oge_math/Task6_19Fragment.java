@@ -83,7 +83,7 @@ public class Task6_19Fragment extends Fragment {
 
 
             textAnsw = getString(getResources().getIdentifier("answ" + taskNumber + "_" + 1, "string", requireContext().getPackageName()));
-            int htmlResourceId = getResources().getIdentifier("t" + 7 + "_" + 1, "raw", requireContext().getPackageName());
+            int htmlResourceId = getResources().getIdentifier("t" + taskNumber + "_" + 1, "raw", requireContext().getPackageName());
             String htmlContent = readHtmlFromRawResource(htmlResourceId);
             textTask.getSettings().setJavaScriptEnabled(true);
             textTask.loadDataWithBaseURL(null, htmlContent, "text/html", "UTF-8", null);

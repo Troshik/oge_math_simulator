@@ -70,7 +70,7 @@ public class Task1_5Fragment extends Fragment {
         TextView trAnsw1 = view.findViewById(R.id.trAnswText1);
         Button answBottom1 = view.findViewById(R.id.answBtn1);
         Button solutBottom1 = view.findViewById(R.id.solutBtn1);
-        ImageView textTask1 = view.findViewById(R.id.imageTask1);
+        WebView textTask1 = view.findViewById(R.id.imageTask1);
         TextView trFlAnsw1 = view.findViewById(R.id.trFlAnswText1);
 
 
@@ -102,6 +102,8 @@ public class Task1_5Fragment extends Fragment {
         WebView textTask5 = view.findViewById(R.id.imageTask5);
         TextView trFlAnsw5 = view.findViewById(R.id.trFlAnswText5);
 
+        WebSettings webSettings1 = textTask1.getSettings();
+        webSettings1.setJavaScriptEnabled(true);
         WebSettings webSettings2 = textTask2.getSettings();
         webSettings2.setJavaScriptEnabled(true);
         WebSettings webSettings3 = textTask3.getSettings();
@@ -117,7 +119,9 @@ public class Task1_5Fragment extends Fragment {
             String taskNumber = args.getString("buttonNumber", "0");
 
             textAnsw1 = getString(getResources().getIdentifier("answ1_" + taskNumber + "_1", "string", requireContext().getPackageName()));
-            textTask1.setImageResource(getResources().getIdentifier("t1_" + taskNumber + "_1", "drawable", requireContext().getPackageName()));
+            int htmlResourceId1 = getResources().getIdentifier("t1_" + taskNumber + "_" + 1, "raw", requireContext().getPackageName());
+            textTask1.getSettings().setJavaScriptEnabled(true);
+            textTask1.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId1), "text/html", "UTF-8", null);
             editText1.setText("");
 
             textAnsw2 = getString(getResources().getIdentifier("answ1_" + taskNumber + "_2", "string", requireContext().getPackageName()));
@@ -156,9 +160,10 @@ public class Task1_5Fragment extends Fragment {
                     String buttonName = getResources().getResourceEntryName(v.getId());
                     actBtn  = buttonName.substring(10);
 
-                    int imageResourceId1 = getResources().getIdentifier("t1_" + actBtn + "_1", "drawable", requireContext().getPackageName());
                     int resourceId1 = getResources().getIdentifier("answ1_" + actBtn + "_1", "string", requireContext().getPackageName());
-                    textTask1.setImageResource(imageResourceId1);
+                    int htmlResourceId1 = getResources().getIdentifier("t1_" + actBtn + "_1", "raw", requireContext().getPackageName());
+                    textTask1.getSettings().setJavaScriptEnabled(true);
+                    textTask1.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId1), "text/html", "UTF-8", null);
                     trAnsw1.setText("");
                     trFlAnsw1.setText("");
                     textAnsw1 = getString(resourceId1);
