@@ -67,6 +67,7 @@ public class Task20_25Fragment extends Fragment {
         WebView textAnsw = view.findViewById(R.id.imageAns);
         TextView taskNum = view.findViewById(R.id.taskNum);
 
+
         WebSettings webSettings1 = textTask.getSettings();
         webSettings1.setJavaScriptEnabled(true);
         WebSettings webSettings2 = textAnsw.getSettings();
@@ -77,9 +78,7 @@ public class Task20_25Fragment extends Fragment {
 
             String taskNumber = args.getString("buttonNumber", "0");
             taskNum.setText("Задание " + taskNumber);
-
-            //imageTask.setImageResource(getResources().getIdentifier("t" + taskNumber+ "_" + 1, "drawable", requireContext().getPackageName()));
-            //imageAnsw.setImageResource(getResources().getIdentifier("a" + taskNumber+ "_" + 1, "drawable", requireContext().getPackageName()));
+            textInfo.setText(getString(getResources().getIdentifier("info_" + taskNumber, "string", requireContext().getPackageName())));
 
             int htmlResourceId1 = getResources().getIdentifier("t" + taskNumber+ "_" + 1, "raw", requireContext().getPackageName());
             String htmlContent1 = readHtmlFromRawResource(htmlResourceId1);

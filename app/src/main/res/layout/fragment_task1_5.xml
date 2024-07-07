@@ -621,7 +621,6 @@
                 android:padding="5dp"
                 android:paddingEnd="10dp"
                 android:shadowColor="@color/nodarkblue"
-                android:text="@string/info"
                 android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="@+id/infoButton"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -631,8 +630,8 @@
 
             <ImageButton
                 android:id="@+id/closeButton"
-                android:layout_width="37dp"
-                android:layout_height="31dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:backgroundTint="@android:color/transparent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/close"

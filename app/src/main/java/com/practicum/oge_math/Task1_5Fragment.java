@@ -58,6 +58,7 @@ public class Task1_5Fragment extends Fragment {
         ImageButton infoBotttom = view.findViewById(R.id.infoButton);
         ImageButton closeBotttom = view.findViewById(R.id.closeButton);
         TextView textInfo = view.findViewById(R.id.textInfo);
+        textInfo.setText(getString(getResources().getIdentifier("info_1_5", "string", requireContext().getPackageName())));
         Button buttonTask1 = view.findViewById(R.id.buttonTask1);
         Button buttonTask2 = view.findViewById(R.id.buttonTask2);
         Button buttonTask3 = view.findViewById(R.id.buttonTask3);

@@ -78,8 +78,10 @@ public class Task6_19Fragment extends Fragment {
 
         Bundle args = getArguments();
         assert args != null;
-        String taskNumber = args.getString("buttonNumber", "0");
+            String taskNumber = args.getString("buttonNumber", "0");
             taskNum.setText("Задание " + taskNumber);
+            textInfo.setText(getString(getResources().getIdentifier("info_" + taskNumber, "string", requireContext().getPackageName())));
+
 
 
             textAnsw = getString(getResources().getIdentifier("answ" + taskNumber + "_" + 1, "string", requireContext().getPackageName()));
