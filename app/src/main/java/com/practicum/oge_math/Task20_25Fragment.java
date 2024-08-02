@@ -4,6 +4,8 @@ package com.practicum.oge_math;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -31,8 +33,8 @@ public class Task20_25Fragment extends Fragment {
         void setNewFragment(Fragment fragment, String buttonNumber);
     }
 
-
     TasksInterface newFr;
+    private SQLiteDatabase db;
 
     @Override
     public void onAttach(@NonNull Activity activity) {
@@ -54,6 +56,7 @@ public class Task20_25Fragment extends Fragment {
         ImageButton imageLastList = view.findViewById(R.id.imageLastList);
         ImageButton infoBotttom = view.findViewById(R.id.infoButton);
         ImageButton closeBotttom = view.findViewById(R.id.closeButton);
+        Button solveButton = view.findViewById(R.id.solveBtn);
         TextView textInfo = view.findViewById(R.id.textInfo);
         Button solutBottom = view.findViewById(R.id.solutBtn);
         Button buttonTask1 = view.findViewById(R.id.buttonTask1);
@@ -65,6 +68,7 @@ public class Task20_25Fragment extends Fragment {
         Button buttonTask7 = view.findViewById(R.id.buttonTask7);
         WebView textTask = view.findViewById(R.id.imageTask1);
         WebView textAnsw = view.findViewById(R.id.imageAns);
+        TextView decidedText = view.findViewById(R.id.decidedText);
         TextView taskNum = view.findViewById(R.id.taskNum);
 
 
@@ -73,8 +77,15 @@ public class Task20_25Fragment extends Fragment {
         WebSettings webSettings2 = textAnsw.getSettings();
         webSettings2.setJavaScriptEnabled(true);
 
+        DatabaseHelper dbHelper = new DatabaseHelper(requireContext());
+        db = dbHelper.getWritableDatabase();
+
+        final Integer[] t_num = {1};
+
         Bundle args = getArguments();
         if (args != null) {
+
+            buttonTask1.setBackgroundColor(getResources().getColor(R.color.gray));
 
             String taskNumber = args.getString("buttonNumber", "0");
             taskNum.setText("Задание " + taskNumber);
@@ -91,14 +102,40 @@ public class Task20_25Fragment extends Fragment {
             textAnsw.loadDataWithBaseURL(null, htmlContent2, "text/html", "UTF-8", null);
 
             Fragment TasksList = new TasksFragment();
+
+            decidedText.setVisibility(View.GONE);
+            solveButton.setText(getResources().getString(R.string.answ_0));
+
+            Cursor cursor = db.rawQuery("SELECT col1 FROM answ WHERE rowNum = ?", new String[]{taskNumber});
+            Integer tr_fl = 0;
+            if (cursor.moveToFirst()) {
+                tr_fl = cursor.getInt(0);
+            }
+            cursor.close();
+            if ((tr_fl.equals(1))) {
+                solveButton.setText(getResources().getString(R.string.answ_1));
+                decidedText.setVisibility(View.VISIBLE);
+            }
             View.OnClickListener buttonClickListener = new View.OnClickListener() {
                 @SuppressLint("ResourceAsColor")
                 @Override
                 public void onClick(View v) {
+
+                    buttonTask1.setBackgroundColor(getResources().getColor(R.color.lightblue));
+                    buttonTask2.setBackgroundColor(getResources().getColor(R.color.lightblue));
+                    buttonTask3.setBackgroundColor(getResources().getColor(R.color.lightblue));
+                    buttonTask4.setBackgroundColor(getResources().getColor(R.color.lightblue));
+                    buttonTask5.setBackgroundColor(getResources().getColor(R.color.lightblue));
+                    buttonTask6.setBackgroundColor(getResources().getColor(R.color.lightblue));
+                    buttonTask7.setBackgroundColor(getResources().getColor(R.color.lightblue));
+                    v.setBackgroundColor(getResources().getColor(R.color.gray));
+
                     textAnsw.setVisibility(View.INVISIBLE);
                     String buttonName = getResources().getResourceEntryName(v.getId());
 
                     int num = Integer.parseInt(buttonName.substring(10));
+                    t_num[0] = num;
+
 
                     String taskName = "t" + taskNumber+ "_" + num;
                     String answName = "a" + taskNumber+ "_" + num;
@@ -111,6 +148,20 @@ public class Task20_25Fragment extends Fragment {
                     String htmlContent2 = readHtmlFromRawResource(htmlResourceId2);
                     textAnsw.getSettings().setJavaScriptEnabled(true);
                     textAnsw.loadDataWithBaseURL(null, htmlContent2, "text/html", "UTF-8", null);
+
+                    decidedText.setVisibility(View.GONE);
+                    solveButton.setText(getResources().getString(R.string.answ_0));
+                    Cursor cursor = db.rawQuery("SELECT col" + num + " FROM answ WHERE rowNum = ?", new String[]{taskNumber});
+                    Integer tr_fl = 0;
+                    if (cursor.moveToFirst()) {
+                        tr_fl = cursor.getInt(0);
+                    }
+                    cursor.close();
+                    if ((tr_fl.equals(1))) {
+                        solveButton.setText(getResources().getString(R.string.answ_1));
+                        decidedText.setVisibility(View.VISIBLE);
+                    }
+
                 }
             };
 
@@ -129,6 +180,31 @@ public class Task20_25Fragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     textAnsw.setVisibility(View.VISIBLE);
+                }
+            });
+
+            solveButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Cursor cursor = db.rawQuery("SELECT col"+ t_num[0] +" FROM answ WHERE rowNum = ?", new String[]{taskNumber});
+                    Integer tr_fl = 0;
+                    if (cursor.moveToFirst()) {
+                        tr_fl = cursor.getInt(0);
+                    }
+                    cursor.close();
+                    if ((tr_fl.equals(1))) {
+                        String query = "UPDATE answ SET col" + t_num[0] + " = 0 WHERE rowNum = " + taskNumber;
+                        db.execSQL(query);
+                        solveButton.setText(getResources().getString(R.string.answ_0));
+                        decidedText.setVisibility(View.GONE);
+                    }
+                    else {
+                        String query = "UPDATE answ SET col" + t_num[0] + " = 1 WHERE rowNum = " + taskNumber;
+                        db.execSQL(query);
+                        solveButton.setText(getResources().getString(R.string.answ_1));
+                        decidedText.setVisibility(View.VISIBLE);
+                    }
                 }
             });
 

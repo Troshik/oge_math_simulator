@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
     private final TasksFragment tasksFragment = new TasksFragment();
     DraftFragment draftFragment = new DraftFragment();
     TheoryFragment theoryFragment = new TheoryFragment();
+    StatisticsFragment statisticsFragment = new StatisticsFragment();
     public Fragment activeTaskFragment = tasksFragment;
     public String activeNum;
 
@@ -33,20 +34,21 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
         openTasksButton = findViewById(R.id.openTasksButton);
         openTheoryButton = findViewById(R.id.openTheoryButton);
         openDraftButton = findViewById(R.id.openDraftButton);
-        openTasksButton.setColorFilter(R.color.nodarkblue);
+        openStatisticsButton = findViewById(R.id.openStatisticsButton);
+        openTasksButton.setColorFilter(R.color.lightblue);
 
         openDraftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setNewFragment(draftFragment, "0");
-                openDraftButton.setColorFilter(R.color.nodarkblue);;
+                openDraftButton.setColorFilter(getResources().getColor(R.color.nodarkblue));
             }
         });
         openTasksButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setNewFragment(activeTaskFragment, activeNum);
-                openTasksButton.setColorFilter(R.color.nodarkblue);
+                openTasksButton.setColorFilter(getResources().getColor(R.color.nodarkblue));
             }
         });
 
@@ -54,7 +56,15 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
             @Override
             public void onClick(View v) {
                 setNewFragment(theoryFragment, "0");
-                openTheoryButton.setColorFilter(R.color.nodarkblue);
+                openTheoryButton.setColorFilter(getResources().getColor(R.color.nodarkblue));
+            }
+        });
+
+        openStatisticsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setNewFragment(statisticsFragment, "0");
+                openStatisticsButton.setColorFilter(getResources().getColor(R.color.nodarkblue));
             }
         });
     }
@@ -69,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements TasksFragment.Tas
         openTasksButton.setColorFilter(null);
         openTheoryButton.setColorFilter(null);
         openDraftButton.setColorFilter(null);
+        openStatisticsButton.setColorFilter(null);
         ft.commit();
     }
     public void setActiveFragment(Fragment fr, String btn_num){

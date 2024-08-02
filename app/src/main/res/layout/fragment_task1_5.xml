@@ -52,7 +52,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt1"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
@@ -64,7 +64,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt2"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
@@ -76,7 +76,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt3"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
@@ -88,7 +88,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt4"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
@@ -100,7 +100,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt5"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
@@ -112,7 +112,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt6"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
@@ -124,12 +124,15 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt7"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
                 </LinearLayout>
             </HorizontalScrollView>
+
+
+
 
             <WebView
                 android:id="@+id/imageTask1"
@@ -149,12 +152,12 @@
                 android:id="@+id/getAnswerEdText1"
 
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:padding="20dp"
+                android:paddingHorizontal="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageTask1"
+                app:layout_constraintTop_toBottomOf="@+id/decidedText1"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -162,7 +165,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/answer"
-                    android:paddingHorizontal="20dp"
                     android:textColor="@color/black">
 
 
@@ -175,7 +177,7 @@
                 android:id="@+id/answBtn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/nodarkblue"
+                android:backgroundTint="@color/lightblue"
                 android:padding="20dp"
                 android:text="@string/check"
                 android:textColor="?attr/btntextColor"
@@ -186,22 +188,62 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/getAnswerEdText1" />
 
+            <Button
+                android:id="@+id/unsolveBtn1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingVertical="20dp"
+                android:gravity="right|end"
+                android:text="@string/answ_1"
+                android:layout_marginEnd="20dp"
+                android:visibility="invisible"
+                app:cornerRadius="15dp"
+                android:backgroundTint="@color/nodarkblue"
+                app:layout_constraintBottom_toBottomOf="@+id/answBtn1"
+                app:layout_constraintEnd_toEndOf="@+id/getAnswerEdText1"
+                app:layout_constraintTop_toTopOf="@+id/answBtn1"
+                tools:ignore="RtlHardcoded" />
+
+
             <TextView
                 android:id="@+id/trFlAnswText1"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="20dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:background="@drawable/rounded_corner"
                 android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/true_answ"
+                android:visibility="invisible"
+                app:cornerRadius="15dp"
                 app:layout_constraintBottom_toBottomOf="@+id/answBtn1"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/answBtn1"
                 app:layout_constraintTop_toTopOf="@+id/answBtn1" />
+
+            <TextView
+                android:id="@+id/decidedText1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="@string/decided"
+                android:layout_marginHorizontal= "20dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageTask1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageTask1" />
+
+
 
             <Button
                 android:id="@+id/solutBtn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:backgroundTint="@color/nodarkblue"
+                android:backgroundTint="@color/lightblue"
                 android:padding="20dp"
                 android:text="@string/solut"
                 android:textColor="?attr/btntextColor"
@@ -240,12 +282,12 @@
                 android:id="@+id/getAnswerEdText2"
 
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:padding="20dp"
+                android:paddingHorizontal="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageTask2"
+                app:layout_constraintTop_toBottomOf="@+id/decidedText2"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -253,7 +295,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/answer"
-                    android:paddingHorizontal="20dp"
                     android:textColor="@color/black">
 
 
@@ -268,7 +309,7 @@
                 android:id="@+id/answBtn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/nodarkblue"
+                android:backgroundTint="@color/lightblue"
                 android:padding="20dp"
                 android:text="@string/check"
                 android:textColor="?attr/btntextColor"
@@ -279,22 +320,61 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/getAnswerEdText2" />
 
+            <Button
+                android:id="@+id/unsolveBtn2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingVertical="20dp"
+                android:gravity="right|end"
+                android:text="@string/answ_1"
+                android:layout_marginEnd="20dp"
+                android:visibility="invisible"
+                app:cornerRadius="15dp"
+                android:backgroundTint="@color/nodarkblue"
+                app:layout_constraintBottom_toBottomOf="@+id/answBtn2"
+                app:layout_constraintEnd_toEndOf="@+id/getAnswerEdText2"
+                app:layout_constraintTop_toTopOf="@+id/answBtn2"
+                tools:ignore="RtlHardcoded" />
+
+
             <TextView
                 android:id="@+id/trFlAnswText2"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="20dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:background="@drawable/rounded_corner"
                 android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/true_answ"
+                android:visibility="invisible"
+                app:cornerRadius="15dp"
                 app:layout_constraintBottom_toBottomOf="@+id/answBtn2"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/answBtn2"
                 app:layout_constraintTop_toTopOf="@+id/answBtn2" />
+
+            <TextView
+                android:id="@+id/decidedText2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="@string/decided"
+                android:layout_marginHorizontal="20dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageTask2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageTask2" />
+
 
             <Button
                 android:id="@+id/solutBtn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:backgroundTint="@color/nodarkblue"
+                android:backgroundTint="@color/lightblue"
                 android:padding="20dp"
                 android:text="@string/solut"
                 android:textColor="?attr/btntextColor"
@@ -332,12 +412,12 @@
                 android:id="@+id/getAnswerEdText3"
 
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:padding="20dp"
+                android:paddingHorizontal="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageTask3"
+                app:layout_constraintTop_toBottomOf="@+id/decidedText3"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -345,7 +425,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/answer"
-                    android:paddingHorizontal="20dp"
                     android:textColor="@color/black">
 
 
@@ -359,7 +438,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
-                android:backgroundTint="@color/nodarkblue"
+                android:backgroundTint="@color/lightblue"
                 android:padding="20dp"
                 android:text="@string/check"
                 android:textColor="?attr/btntextColor"
@@ -370,22 +449,61 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/getAnswerEdText3" />
 
+            <Button
+                android:id="@+id/unsolveBtn3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingVertical="20dp"
+                android:gravity="right|end"
+                android:text="@string/answ_1"
+                android:layout_marginEnd="20dp"
+                android:visibility="invisible"
+                app:cornerRadius="15dp"
+                android:backgroundTint="@color/nodarkblue"
+                app:layout_constraintBottom_toBottomOf="@+id/answBtn3"
+                app:layout_constraintEnd_toEndOf="@+id/getAnswerEdText3"
+                app:layout_constraintTop_toTopOf="@+id/answBtn3"
+                tools:ignore="RtlHardcoded" />
+
+
             <TextView
                 android:id="@+id/trFlAnswText3"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="20dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:background="@drawable/rounded_corner"
                 android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/true_answ"
+                android:visibility="invisible"
+                app:cornerRadius="15dp"
                 app:layout_constraintBottom_toBottomOf="@+id/answBtn3"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/answBtn3"
                 app:layout_constraintTop_toTopOf="@+id/answBtn3" />
+
+            <TextView
+                android:id="@+id/decidedText3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="@string/decided"
+                android:layout_marginHorizontal="20dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageTask3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageTask3" />
+
 
             <Button
                 android:id="@+id/solutBtn3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:backgroundTint="@color/nodarkblue"
+                android:backgroundTint="@color/lightblue"
                 android:padding="20dp"
                 android:text="@string/solut"
                 android:textColor="?attr/btntextColor"
@@ -423,12 +541,12 @@
                 android:id="@+id/getAnswerEdText4"
 
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:padding="20dp"
+                android:paddingHorizontal="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageTask4"
+                app:layout_constraintTop_toBottomOf="@+id/decidedText4"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -436,7 +554,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/answer"
-                    android:paddingHorizontal="20dp"
                     android:textColor="@color/black">
 
 
@@ -449,7 +566,7 @@
                 android:id="@+id/answBtn4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/nodarkblue"
+                android:backgroundTint="@color/lightblue"
                 android:padding="20dp"
                 android:text="@string/check"
                 android:textColor="?attr/btntextColor"
@@ -460,22 +577,61 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/getAnswerEdText4" />
 
+            <Button
+                android:id="@+id/unsolveBtn4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingVertical="20dp"
+                android:gravity="right|end"
+                android:text="@string/answ_1"
+                android:layout_marginEnd="20dp"
+                android:visibility="invisible"
+                app:cornerRadius="15dp"
+                android:backgroundTint="@color/nodarkblue"
+                app:layout_constraintBottom_toBottomOf="@+id/answBtn4"
+                app:layout_constraintEnd_toEndOf="@+id/getAnswerEdText4"
+                app:layout_constraintTop_toTopOf="@+id/answBtn4"
+                tools:ignore="RtlHardcoded" />
+
+
             <TextView
                 android:id="@+id/trFlAnswText4"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="20dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:background="@drawable/rounded_corner"
                 android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/true_answ"
+                android:visibility="invisible"
+                app:cornerRadius="15dp"
                 app:layout_constraintBottom_toBottomOf="@+id/answBtn4"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/answBtn4"
                 app:layout_constraintTop_toTopOf="@+id/answBtn4" />
+
+            <TextView
+                android:id="@+id/decidedText4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="@string/decided"
+                android:layout_marginHorizontal="20dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageTask4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageTask4" />
+
 
             <Button
                 android:id="@+id/solutBtn4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:backgroundTint="@color/nodarkblue"
+                android:backgroundTint="@color/lightblue"
                 android:padding="20dp"
                 android:text="@string/solut"
                 android:textColor="?attr/btntextColor"
@@ -513,12 +669,12 @@
                 android:id="@+id/getAnswerEdText5"
 
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:padding="20dp"
+                android:paddingHorizontal="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageTask5"
+                app:layout_constraintTop_toBottomOf="@+id/decidedText5"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -526,7 +682,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/answer"
-                    android:paddingHorizontal="20dp"
                     android:textColor="@color/black">
 
 
@@ -540,7 +695,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
-                android:backgroundTint="@color/nodarkblue"
+                android:backgroundTint="@color/lightblue"
                 android:padding="20dp"
                 android:text="@string/check"
                 android:textColor="?attr/btntextColor"
@@ -551,22 +706,61 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/getAnswerEdText5" />
 
+            <Button
+                android:id="@+id/unsolveBtn5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingVertical="20dp"
+                android:gravity="right|end"
+                android:text="@string/answ_1"
+                android:layout_marginEnd="20dp"
+                android:visibility="invisible"
+                app:cornerRadius="15dp"
+                android:backgroundTint="@color/nodarkblue"
+                app:layout_constraintBottom_toBottomOf="@+id/answBtn5"
+                app:layout_constraintEnd_toEndOf="@+id/getAnswerEdText5"
+                app:layout_constraintTop_toTopOf="@+id/answBtn5"
+                tools:ignore="RtlHardcoded" />
+
+
             <TextView
                 android:id="@+id/trFlAnswText5"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="20dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:background="@drawable/rounded_corner"
                 android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/true_answ"
+                android:visibility="invisible"
+                app:cornerRadius="15dp"
                 app:layout_constraintBottom_toBottomOf="@+id/answBtn5"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/answBtn5"
                 app:layout_constraintTop_toTopOf="@+id/answBtn5" />
+
+            <TextView
+                android:id="@+id/decidedText5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="@string/decided"
+                android:layout_marginHorizontal="20dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageTask5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageTask5" />
+
 
             <Button
                 android:id="@+id/solutBtn5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:backgroundTint="@color/nodarkblue"
+                android:backgroundTint="@color/lightblue"
                 android:padding="20dp"
                 android:text="@string/solut"
                 android:textColor="?attr/btntextColor"
@@ -620,7 +814,7 @@
                 android:background="@drawable/text_style"
                 android:padding="5dp"
                 android:paddingEnd="10dp"
-                android:shadowColor="@color/nodarkblue"
+                android:shadowColor="@color/lightblue"
                 android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="@+id/infoButton"
                 app:layout_constraintHorizontal_bias="0.0"

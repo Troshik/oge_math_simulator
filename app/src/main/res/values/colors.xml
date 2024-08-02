@@ -3,7 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="theme">#2B2B2B</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="darkblue">#150952</color>
-    <color name="nodarkblue">#FF735DDD</color>
+    <color name="darkblue">#2e2050</color>
+    <color name="nodarkblue">#674a86</color>
+    <color name="lightblue">#8766AE</color>
+    <color name="light">#DDC7F8</color>
     <color name="gray">#AAAAAAAA</color>
+    <color name="green">#92B775</color>
+    <color name="red">#9A2728</color>
 </resources>

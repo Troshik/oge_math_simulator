@@ -61,7 +61,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt1"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
@@ -73,7 +73,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt2"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
@@ -85,7 +85,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt3"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
@@ -97,7 +97,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt4"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
@@ -109,7 +109,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt5"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
@@ -121,7 +121,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt6"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
@@ -133,7 +133,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/nodarkblue"
+                        android:backgroundTint="@color/lightblue"
                         android:text="@string/bt7"
                         android:textColor="?attr/btntextColor"
                         app:cornerRadius="12dp" />
@@ -145,7 +145,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:backgroundTint="@color/nodarkblue"
+                android:backgroundTint="@color/lightblue"
                 android:padding="20dp"
                 android:text="@string/solut"
                 android:textColor="?attr/btntextColor"
@@ -154,6 +154,20 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageTask1" />
+            <Button
+                android:id="@+id/solveBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingVertical="20dp"
+                android:gravity="right|end"
+                android:text="@string/answ_1"
+                app:cornerRadius="15dp"
+                android:backgroundTint="@color/nodarkblue"
+                app:layout_constraintBottom_toBottomOf="@+id/solutBtn"
+                app:layout_constraintEnd_toEndOf="@+id/imageTask1"
+                app:layout_constraintTop_toTopOf="@+id/solutBtn"
+                tools:ignore="RtlHardcoded" />
+
 
             <WebView
                 android:id="@+id/imageTask1"
@@ -165,7 +179,7 @@
                 android:contentDescription="@string/openTasks"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/taskNum" />
+                app:layout_constraintTop_toBottomOf="@+id/decidedText" />
 
             <WebView
                 android:id="@+id/imageAns"
@@ -181,6 +195,22 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/solutBtn" />
+
+            <TextView
+                android:id="@+id/decidedText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="@string/decided"
+                android:layout_marginHorizontal="20dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/taskNum"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskNum" />
+
 
             <ImageButton
                 android:id="@+id/infoButton"
@@ -205,7 +235,7 @@
                 android:background="@drawable/text_style"
                 android:padding="5dp"
                 android:paddingEnd="10dp"
-                android:shadowColor="@color/nodarkblue"
+                android:shadowColor="@color/lightblue"
                 android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="@+id/infoButton"
                 app:layout_constraintHorizontal_bias="0.0"

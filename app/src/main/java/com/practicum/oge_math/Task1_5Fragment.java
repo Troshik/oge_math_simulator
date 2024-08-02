@@ -3,12 +3,14 @@ package com.practicum.oge_math;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.graphics.Color;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +19,6 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -35,6 +36,7 @@ public class Task1_5Fragment extends Fragment {
 
     TasksInterface newFr;
     String textAnsw1, textAnsw2, textAnsw3, textAnsw4, textAnsw5, actBtn;
+    private SQLiteDatabase db;
 
     @Override
     public void onAttach(@NonNull Activity activity) {
@@ -67,41 +69,31 @@ public class Task1_5Fragment extends Fragment {
         Button buttonTask6 = view.findViewById(R.id.buttonTask6);
         Button buttonTask7 = view.findViewById(R.id.buttonTask7);
 
-        EditText editText1 = view.findViewById(R.id.filledTextField1);
-        TextView trAnsw1 = view.findViewById(R.id.trAnswText1);
         Button answBottom1 = view.findViewById(R.id.answBtn1);
         Button solutBottom1 = view.findViewById(R.id.solutBtn1);
+        Button unsolveButton1 = view.findViewById(R.id.unsolveBtn1);
         WebView textTask1 = view.findViewById(R.id.imageTask1);
-        TextView trFlAnsw1 = view.findViewById(R.id.trFlAnswText1);
 
 
-        EditText editText2 = view.findViewById(R.id.filledTextField2);
-        TextView trAnsw2 = view.findViewById(R.id.trAnswText2);
         Button answBottom2 = view.findViewById(R.id.answBtn2);
         Button solutBottom2 = view.findViewById(R.id.solutBtn2);
+        Button unsolveButton2 = view.findViewById(R.id.unsolveBtn2);
         WebView textTask2 = view.findViewById(R.id.imageTask2);
-        TextView trFlAnsw2 = view.findViewById(R.id.trFlAnswText2);
 
-        EditText editText3 = view.findViewById(R.id.filledTextField3);
-        TextView trAnsw3 = view.findViewById(R.id.trAnswText3);
         Button answBottom3 = view.findViewById(R.id.answBtn3);
         Button solutBottom3 = view.findViewById(R.id.solutBtn3);
+        Button unsolveButton3 = view.findViewById(R.id.unsolveBtn3);
         WebView textTask3 = view.findViewById(R.id.imageTask3);
-        TextView trFlAnsw3 = view.findViewById(R.id.trFlAnswText3);
 
-        EditText editText4 = view.findViewById(R.id.filledTextField4);
-        TextView trAnsw4 = view.findViewById(R.id.trAnswText4);
         Button answBottom4 = view.findViewById(R.id.answBtn4);
         Button solutBottom4 = view.findViewById(R.id.solutBtn4);
+        Button unsolveButton4 = view.findViewById(R.id.unsolveBtn4);
         WebView textTask4 = view.findViewById(R.id.imageTask4);
-        TextView trFlAnsw4 = view.findViewById(R.id.trFlAnswText4);
 
-        EditText editText5 = view.findViewById(R.id.filledTextField5);
-        TextView trAnsw5 = view.findViewById(R.id.trAnswText5);
         Button answBottom5 = view.findViewById(R.id.answBtn5);
         Button solutBottom5 = view.findViewById(R.id.solutBtn5);
+        Button unsolveButton5 = view.findViewById(R.id.unsolveBtn5);
         WebView textTask5 = view.findViewById(R.id.imageTask5);
-        TextView trFlAnsw5 = view.findViewById(R.id.trFlAnswText5);
 
         WebSettings webSettings1 = textTask1.getSettings();
         webSettings1.setJavaScriptEnabled(true);
@@ -114,45 +106,53 @@ public class Task1_5Fragment extends Fragment {
         WebSettings webSettings5 = textTask5.getSettings();
         webSettings5.setJavaScriptEnabled(true);
 
+        DatabaseHelper dbHelper = new DatabaseHelper(requireContext());
+        db = dbHelper.getWritableDatabase();
+
 
         Bundle args = getArguments();
         if (args != null) {
             String taskNumber = args.getString("buttonNumber", "0");
 
+            for (int i = 1; i <= 5; i++) {
+                int htmlResourceId = getResources().getIdentifier("t1_" + taskNumber + "_" + i, "raw", requireContext().getPackageName());
+                WebView textTask = view.findViewById(getResources().getIdentifier("imageTask" + i, "id", requireContext().getPackageName()));
+                EditText editText = view.findViewById(getResources().getIdentifier("filledTextField" + i, "id", requireContext().getPackageName()));
+                Button unsolveButton = view.findViewById(getResources().getIdentifier("unsolveBtn" + i, "id", requireContext().getPackageName()));
+                TextView decidedText = view.findViewById(getResources().getIdentifier("decidedText" + i, "id", requireContext().getPackageName()));
+
+                textTask.getSettings().setJavaScriptEnabled(true);
+                textTask.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId), "text/html", "UTF-8", null);
+                editText.setText("");
+                unsolveButton.setVisibility(View.INVISIBLE);
+                decidedText.setVisibility(View.GONE);
+
+                Cursor cursor = db.rawQuery("SELECT col1 FROM answ WHERE rowNum = ?", new String[]{String.valueOf(i)});
+                Integer tr_fl = 0;
+                if (cursor.moveToFirst()) {
+                    tr_fl = cursor.getInt(0);
+                }
+                cursor.close();
+                if ((tr_fl.equals(1))) {
+                    unsolveButton.setVisibility(View.VISIBLE);
+                    decidedText.setVisibility(View.VISIBLE);
+                }
+            }
+
+
             textAnsw1 = getString(getResources().getIdentifier("answ1_" + taskNumber + "_1", "string", requireContext().getPackageName()));
-            int htmlResourceId1 = getResources().getIdentifier("t1_" + taskNumber + "_" + 1, "raw", requireContext().getPackageName());
-            textTask1.getSettings().setJavaScriptEnabled(true);
-            textTask1.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId1), "text/html", "UTF-8", null);
-            editText1.setText("");
-
             textAnsw2 = getString(getResources().getIdentifier("answ1_" + taskNumber + "_2", "string", requireContext().getPackageName()));
-            //imageTask2.setImageResource(getResources().getIdentifier("t1_1_2", "drawable", requireContext().getPackageName()));
-            int htmlResourceId2 = getResources().getIdentifier("t1_" + taskNumber + "_" + 2, "raw", requireContext().getPackageName());
-            textTask2.getSettings().setJavaScriptEnabled(true);
-            textTask2.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId2), "text/html", "UTF-8", null);
-            editText2.setText("");
-
             textAnsw3 = getString(getResources().getIdentifier("answ1_" + taskNumber + "_3", "string", requireContext().getPackageName()));
-            int htmlResourceId3 = getResources().getIdentifier("t1_" + taskNumber + "_" + 3, "raw", requireContext().getPackageName());
-            textTask3.getSettings().setJavaScriptEnabled(true);
-            textTask3.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId3), "text/html", "UTF-8", null);
-            editText3.setText("");
-
             textAnsw4 = getString(getResources().getIdentifier("answ1_" + taskNumber + "_4", "string", requireContext().getPackageName()));
-            int htmlResourceId4 = getResources().getIdentifier("t1_" + taskNumber + "_" + 4, "raw", requireContext().getPackageName());
-            textTask4.getSettings().setJavaScriptEnabled(true);
-            textTask4.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId4), "text/html", "UTF-8", null);
-            editText4.setText("");
-
             textAnsw5 = getString(getResources().getIdentifier("answ1_" + taskNumber + "_5", "string", requireContext().getPackageName()));
-            int htmlResourceId5 = getResources().getIdentifier("t1_" + taskNumber + "_" + 5, "raw", requireContext().getPackageName());
-            textTask5.getSettings().setJavaScriptEnabled(true);
-            textTask5.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId5), "text/html", "UTF-8", null);
-            editText5.setText("");
 
             actBtn  = "1";
 
+
+
             Fragment TasksList = new TasksFragment();
+
+
 
             View.OnClickListener buttonClickListener = new View.OnClickListener() {
                 @SuppressLint({"ResourceAsColor", "SetTextI18n"})
@@ -161,50 +161,28 @@ public class Task1_5Fragment extends Fragment {
                     String buttonName = getResources().getResourceEntryName(v.getId());
                     actBtn  = buttonName.substring(10);
 
-                    int resourceId1 = getResources().getIdentifier("answ1_" + actBtn + "_1", "string", requireContext().getPackageName());
-                    int htmlResourceId1 = getResources().getIdentifier("t1_" + actBtn + "_1", "raw", requireContext().getPackageName());
-                    textTask1.getSettings().setJavaScriptEnabled(true);
-                    textTask1.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId1), "text/html", "UTF-8", null);
-                    trAnsw1.setText("");
-                    trFlAnsw1.setText("");
-                    textAnsw1 = getString(resourceId1);
-                    editText1.setText("");
+                    for (int i = 1; i <= 5; i++) {
+                        WebView textTask = view.findViewById(getResources().getIdentifier("imageTask" + i, "id", requireContext().getPackageName()));
+                        EditText editText = view.findViewById(getResources().getIdentifier("filledTextField" + i, "id", requireContext().getPackageName()));
+                        TextView trAnsw = view.findViewById(getResources().getIdentifier("trAnswText" + i, "id", requireContext().getPackageName()));
+                        Button unsolveButton = view.findViewById(getResources().getIdentifier("unsolveBtn" + i, "id", requireContext().getPackageName()));
+                        TextView decidedText = view.findViewById(getResources().getIdentifier("decidedText" + i, "id", requireContext().getPackageName()));
+                        int htmlResourceId = getResources().getIdentifier("t1_" + actBtn + "_" + i, "raw", requireContext().getPackageName());
+                        textTask.getSettings().setJavaScriptEnabled(true);
+                        textTask.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId), "text/html", "UTF-8", null);
+                        trAnsw.setText("");
+                        editText.setText("");
+                        unsolveButton.setVisibility(View.INVISIBLE);
+                        decidedText.setVisibility(View.GONE);
+                    }
 
-                    int resourceId2 = getResources().getIdentifier("answ1_" + actBtn + "_2", "string", requireContext().getPackageName());
-                    int htmlResourceId2 = getResources().getIdentifier("t1_" + actBtn + "_2", "raw", requireContext().getPackageName());
-                    textTask2.getSettings().setJavaScriptEnabled(true);
-                    textTask2.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId2), "text/html", "UTF-8", null);
-                    trAnsw2.setText("");
-                    trFlAnsw2.setText("");
-                    textAnsw2 = getString(resourceId2);
-                    editText2.setText("");
+                    textAnsw1 = getString(getResources().getIdentifier("answ1_" + actBtn + "_1", "string", requireContext().getPackageName()));
+                    textAnsw2 = getString(getResources().getIdentifier("answ1_" + actBtn + "_2", "string", requireContext().getPackageName()));
+                    textAnsw3 = getString(getResources().getIdentifier("answ1_" + actBtn + "_3", "string", requireContext().getPackageName()));
+                    textAnsw4 = getString(getResources().getIdentifier("answ1_" + actBtn + "_4", "string", requireContext().getPackageName()));
+                    textAnsw5 = getString(getResources().getIdentifier("answ1_" + actBtn + "_5", "string", requireContext().getPackageName()));
 
-                    int resourceId3 = getResources().getIdentifier("answ1_" + actBtn + "_3", "string", requireContext().getPackageName());
-                    int htmlResourceId3 = getResources().getIdentifier("t1_" + actBtn + "_3", "raw", requireContext().getPackageName());
-                    textTask3.getSettings().setJavaScriptEnabled(true);
-                    textTask3.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId3), "text/html", "UTF-8", null);
-                    trAnsw3.setText("");
-                    trFlAnsw3.setText("");
-                    textAnsw3 = getString(resourceId3);
-                    editText3.setText("");
-
-                    int resourceId4 = getResources().getIdentifier("answ1_" + actBtn + "_4", "string", requireContext().getPackageName());
-                    int htmlResourceId4 = getResources().getIdentifier("t1_" + actBtn + "_4", "raw", requireContext().getPackageName());
-                    textTask4.getSettings().setJavaScriptEnabled(true);
-                    textTask4.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId4), "text/html", "UTF-8", null);
-                    trAnsw4.setText("");
-                    trFlAnsw4.setText("");
-                    textAnsw4 = getString(resourceId4);
-                    editText4.setText("");
-
-                    int resourceId5 = getResources().getIdentifier("answ1_" + actBtn + "_5", "string", requireContext().getPackageName());
-                    int htmlResourceId5 = getResources().getIdentifier("t1_" + actBtn + "_5", "raw", requireContext().getPackageName());
-                    textTask5.getSettings().setJavaScriptEnabled(true);
-                    textTask5.loadDataWithBaseURL(null, readHtmlFromRawResource(htmlResourceId5), "text/html", "UTF-8", null);
-                    trAnsw5.setText("");
-                    trFlAnsw5.setText("");
-                    textAnsw5 = getString(resourceId5);
-                    editText5.setText("");                }
+                }
             };
 
             View.OnClickListener buttonAnswer = new View.OnClickListener() {
@@ -212,27 +190,31 @@ public class Task1_5Fragment extends Fragment {
                 public void onClick(View v) {
                     String buttonNum = getResources().getResourceEntryName(v.getId());
 
-                    String editTextName = "filledTextField" + buttonNum.substring(7);
-                    int editTextId = getResources().getIdentifier(editTextName, "id", requireContext().getPackageName());
+                    int editTextId = getResources().getIdentifier("filledTextField" + buttonNum.substring(7), "id", requireContext().getPackageName());
                     EditText editText = view.findViewById(editTextId);
                     String answEditText = editText.getText().toString();
 
-                    String trAnswName = "answ1_" + actBtn + "_" + buttonNum.substring(7);
-                    int trAnsId = getResources().getIdentifier(trAnswName, "string", requireContext().getPackageName());
+                    int trAnsId = getResources().getIdentifier("answ1_" + actBtn + "_" + buttonNum.substring(7), "string", requireContext().getPackageName());
                     String trAnsw = getString(trAnsId);
 
 
                     int trFlAnswId = getResources().getIdentifier("trFlAnswText" + buttonNum.substring(7), "id", requireContext().getPackageName());
                     TextView trFlAnsw = view.findViewById(trFlAnswId);
 
+                    Button unsolveButton = view.findViewById(getResources().getIdentifier("unsolveBtn" + buttonNum.substring(7), "id", requireContext().getPackageName()));
+                    TextView decidedText = view.findViewById(getResources().getIdentifier("decidedText" + buttonNum.substring(7), "id", requireContext().getPackageName()));
+
 
                     if (!answEditText.equals("")) {
                         if (answEditText.equals(trAnsw)) {
-                            trFlAnsw.setTextColor(Color.GREEN);
-                            trFlAnsw.setText(R.string.trueAnswer);
+                            String query = "UPDATE answ SET col" + taskNumber + " = 1 WHERE rowNum = " + buttonNum.substring(7);
+                            db.execSQL(query);
+                            showCorrectAnswerMessage(trFlAnsw);
+                            changeButtonColor((Button) v, R.color.green);
+                            unsolveButton.setVisibility(View.VISIBLE);
+                            decidedText.setVisibility(View.VISIBLE);
                         } else {
-                            trFlAnsw.setTextColor(Color.RED);
-                            trFlAnsw.setText(R.string.falseAnswer);
+                            changeButtonColor((Button) v, R.color.red);
                         }
                     }
 
@@ -255,6 +237,20 @@ public class Task1_5Fragment extends Fragment {
 
                     answText.setText(trAnsw);
 
+                }
+            };
+
+            View.OnClickListener buttonUnsolve = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String buttonNum = getResources().getResourceEntryName(v.getId());
+                    Button unsolveButton = view.findViewById(getResources().getIdentifier("unsolveBtn" + buttonNum.substring(10), "id", requireContext().getPackageName()));
+                    TextView decidedText = view.findViewById(getResources().getIdentifier("decidedText" + buttonNum.substring(10), "id", requireContext().getPackageName()));
+
+                    String query = "UPDATE answ SET col" + buttonNum.substring(10) + " = 0 WHERE rowNum = " + actBtn;
+                    db.execSQL(query);
+                    unsolveButton.setVisibility(View.INVISIBLE);
+                    decidedText.setVisibility(View.GONE);
                 }
             };
 
@@ -286,7 +282,6 @@ public class Task1_5Fragment extends Fragment {
             });
 
 
-
             answBottom1.setOnClickListener(buttonAnswer);
             answBottom2.setOnClickListener(buttonAnswer);
             answBottom3.setOnClickListener(buttonAnswer);
@@ -298,6 +293,12 @@ public class Task1_5Fragment extends Fragment {
             solutBottom3.setOnClickListener(buttonSolut);
             solutBottom4.setOnClickListener(buttonSolut);
             solutBottom5.setOnClickListener(buttonSolut);
+
+            unsolveButton1.setOnClickListener(buttonUnsolve);
+            unsolveButton2.setOnClickListener(buttonUnsolve);
+            unsolveButton3.setOnClickListener(buttonUnsolve);
+            unsolveButton4.setOnClickListener(buttonUnsolve);
+            unsolveButton5.setOnClickListener(buttonUnsolve);
 
             buttonTask1.setOnClickListener(buttonClickListener);
             buttonTask2.setOnClickListener(buttonClickListener);
@@ -330,5 +331,25 @@ public class Task1_5Fragment extends Fragment {
             }
         }
         return stringBuilder.toString();
+    }
+
+    private void showCorrectAnswerMessage(final TextView correctAnswerMessage) {
+        correctAnswerMessage.setVisibility(View.VISIBLE);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                correctAnswerMessage.setVisibility(View.INVISIBLE);
+            }
+        }, 2000); // Show message for 2 seconds
+    }
+
+    private void changeButtonColor(final Button button, final int color) {
+        button.setBackgroundColor(getResources().getColor(color));
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                button.setBackgroundColor(getResources().getColor(R.color.lightblue)); // Default color
+            }
+        }, 2000); // Change color for 2 seconds
     }
 }

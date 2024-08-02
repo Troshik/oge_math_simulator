@@ -47,4 +47,9 @@
     <string name="btnEraser_descr">Ластик</string>
     <string name="btnColor_descr">Цвет</string>
     <string name="brush_size">5dp</string>
+    <string name="stat_info">Статистика выполненных заданий</string>
+    <string name="answ_1">Отметить нерешенным</string>
+    <string name="answ_0">Отметить решенным</string>
+    <string name="true_answ">Правильный ответ!</string>
+    <string name="decided">Решено</string>
 </resources>
