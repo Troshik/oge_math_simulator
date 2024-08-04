@@ -30,25 +30,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 
-    public void copyDatabase() {
-        try {
-            InputStream input = context.getAssets().open("stat_bd.sqlite");
-            String outFileName = context.getDatabasePath("stat_bd.sqlite").getPath();
-            OutputStream output = new FileOutputStream(outFileName);
-
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = input.read(buffer)) > 0) {
-                output.write(buffer, 0, length);
+    private void copyDatabase() {
+        File dbFile = context.getDatabasePath("stat_bd.sqlite");
+        if (!dbFile.exists()) {
+            try {
+                InputStream inputStream = context.getAssets().open("stat_bd.sqlite");
+                String outFileName = dbFile.getPath();
+                OutputStream outputStream = new FileOutputStream(outFileName);
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = inputStream.read(buffer)) > 0) {
+                    outputStream.write(buffer, 0, length);
+                }
+                outputStream.flush();
+                outputStream.close();
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-            output.flush();
-            output.close();
-            input.close();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
-
-
 }

@@ -27,9 +27,9 @@ public class StatisticsFragment extends Fragment {
         db = dbHelper.getWritableDatabase();
 
         for (int i = 1; i <= 25; i++) {
-            ProgressBar progressBar = view.findViewById(getResources().getIdentifier("pbTask" + i, "id", getContext().getPackageName()));
-            TextView textView = view.findViewById(getResources().getIdentifier("tvTask" + i + "Progress", "id", getContext().getPackageName()));
-            TextView textNum = view.findViewById(getResources().getIdentifier("tvTask" + i, "id", getContext().getPackageName()));
+            ProgressBar progressBar = view.findViewById(getResources().getIdentifier("pbTask" + i, "id", requireContext().getPackageName()));
+            TextView textView = view.findViewById(getResources().getIdentifier("tvTask" + i + "Progress", "id", requireContext().getPackageName()));
+            TextView textNum = view.findViewById(getResources().getIdentifier("tvTask" + i, "id", requireContext().getPackageName()));
             Integer progress = getSumForNum(String.valueOf(i));
             progressBar.setProgress(progress);
             textView.setText(progress + "/7");
